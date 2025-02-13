@@ -1,0 +1,36 @@
+/* 오버레이 텍스트와 버튼 */
+.overlay {
+  text-align: center;
+  color: white;
+  position: absolute;
+  z-index: 1;
+}
+
+/* 제목 스타일 */
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.3);
+  margin-bottom: 30px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* 버튼 스타일 */
+.start-btn {
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+.start-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
+}
+
