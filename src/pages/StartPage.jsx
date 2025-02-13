@@ -1,11 +1,11 @@
 import React from "react";
-import '../App.css'
+import './Startpage.css'
 import { useNavigate } from "react-router-dom";
 
 
 const StartPage = () => {
 
-  //버튼 클릭시 이동동
+  //버튼 클릭시 이동
   const navigate = useNavigate();
 
   //버튼 클릭 이벤트
@@ -15,7 +15,7 @@ const StartPage = () => {
   };
 
   return (
-    <div className="main-page">
+    
       <div className="overlay">
         
         <h1 className="title">해몽</h1>
@@ -24,9 +24,7 @@ const StartPage = () => {
         </button>
 
       </div>
-      <div className="moon"></div>
-      <div className="stars"></div>
-    </div>
+    
   );
 };
 

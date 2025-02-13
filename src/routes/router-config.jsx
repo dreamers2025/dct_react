@@ -8,14 +8,16 @@ import RootLayout from "../layouts/RootLayout";
 //라우터 설정
 export const router = createBrowserRouter([
 
-  //CharacterPage, UserExperiencePage, DreamContentsPage 중첩라우팅
-  //StartPage 제외 (비교를 위해 빼뒀음 중첩안으로 넣어도 상관없음)
-  //중첩 시킬 시 StartPage.jsx에서 중복되는 태그 제거필요요
+  //중첩라우팅
 
   {
     path:'/',
     element:<RootLayout />,
     children: [
+      {
+        path: '/',
+        element: <StartPage />,
+      },  
       {
         path: '/character',
         element: <ChoiceCharacterPage />,
@@ -29,9 +31,5 @@ export const router = createBrowserRouter([
         element: <DreamContentsPage />,
       },
     ]
-  },
-  {
-    path: '/startPage',
-    element: <StartPage />,
   },  
 ]);
