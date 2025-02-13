@@ -1,29 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import './Startpage.css'
-import { useNavigate } from "react-router-dom";
+import StartComponent from "../components/StartComponent";
 
 
 const StartPage = () => {
 
-  //버튼 클릭시 이동
-  const navigate = useNavigate();
+  //상태값을 처리하는 함수
+  let [renderTag,setRenderTag] = useState(0);
+  console.log('renderTag:', renderTag);
 
-  //버튼 클릭 이벤트
-  const handleStartClick = () => {
-    console.log("해몽을 시작합니다!");
-    navigate('/character')
-  };
-
-  return (
-    
-      <div className="overlay">
-        
-        <h1 className="title">해몽</h1>
-        <button className="start-btn" onClick={handleStartClick}>
-          시작하기
-        </button>
-
-      </div>
+  return (    
+      
+      <StartComponent renderTag = { renderTag }/>
     
   );
 };
