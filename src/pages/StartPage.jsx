@@ -1,29 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import './Startpage.css'
-import { useNavigate } from "react-router-dom";
+import StartComponent from "../components/StartComponent";
+import ChoiceCharacter from "../components/ChoiceCharacter";
+import UserExperience from "../components/UserExperience";
+import DreamContents from "../components/DreamContents";
 
 
 const StartPage = () => {
 
-  //버튼 클릭시 이동
-  const navigate = useNavigate();
+  //상태값을 처리하는 함수
+  const [step,setStep] = useState(0);
 
-  //버튼 클릭 이벤트
-  const handleStartClick = () => {
-    console.log("해몽을 시작합니다!");
-    navigate('/character')
+  //부모 컴포넌트에서 상태관리 , 자식 컴포넌트에 함수를 내려주기기
+  const nextStep = () => {
+    setStep(step + 1);
   };
 
-  return (
-    
-      <div className="overlay">
-        
-        <h1 className="title">해몽</h1>
-        <button className="start-btn" onClick={handleStartClick}>
-          시작하기
-        </button>
-
-      </div>
+  return (    
+      <>
+        {step === 0 && <StartComponent nextStep={nextStep}/>}
+        {step === 1 && <ChoiceCharacter/>}
+        {step === 2 && <UserExperience/>}
+        {step === 3 && <DreamContents/>}
+      </>      
     
   );
 };

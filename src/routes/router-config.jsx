@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import ChoiceCharacterPage from "../pages/ChoiceCharacterPage";
-import UserExperiencePage from "../pages/UserExperiencePage";
-import DreamContentsPage from "../pages/DreamContentsPage";
+import ChoiceCharacterPage from "../components/ChoiceCharacter";
+import UserExperiencePage from "../components/UserExperience";
+import DreamContentsPage from "../components/DreamContents";
 import StartPage from "../pages/StartPage";
 import RootLayout from "../layouts/RootLayout";
+import ChoiceCharacter from "../components/ChoiceCharacter";
+import UserExperience from "../components/UserExperience";
+import DreamContents from "../components/DreamContents";
 
 //라우터 설정
 export const router = createBrowserRouter([
@@ -20,15 +23,15 @@ export const router = createBrowserRouter([
       },  
       {
         path: '/character',
-        element: <ChoiceCharacterPage />,
+        element: <ChoiceCharacter />,
       },
       {
         path: '/experience',
-        element: <UserExperiencePage />,
+        element: <UserExperience/>,
       },
       {
         path: '/dreamContents',
-        element: <DreamContentsPage />,
+        element: <DreamContents />,
       },
     ]
   },  
