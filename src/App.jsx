@@ -1,22 +1,10 @@
-import './App.css'
 import React from 'react';
+import StartPage from './components/StartPage';
 
-function App() {
-  const handleStartClick = () => {
-    console.log('해몽을 시작합니다!');
-  };
+function App() {  
 
   return (
-    <div className="main-page">
-      <div className="overlay">
-        <h1 className="title">해몽</h1>
-        <button className="start-btn" onClick={handleStartClick}>
-          시작하기
-        </button>
-      </div>
-      <div className="moon"></div>
-      <div className="stars"></div>
-    </div>
+    <StartPage />  //시작 페이지
   );
 }
 
