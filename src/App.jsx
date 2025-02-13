@@ -1,10 +1,14 @@
 import React from 'react';
-import StartPage from './components/StartPage';
+
+import { router } from './routes/router-config';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {  
 
   return (
-    <StartPage />  //시작 페이지
+    <>      
+      <RouterProvider router={router} />
+    </>
   );
 }
 
