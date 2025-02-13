@@ -12,10 +12,12 @@ const StartPage = () => {
   return (
     <div className="main-page">
       <div className="overlay">
+        
         <h1 className="title">해몽</h1>
         <button className="start-btn" onClick={handleStartClick}>
           시작하기
         </button>
+
       </div>
       <div className="moon"></div>
       <div className="stars"></div>
