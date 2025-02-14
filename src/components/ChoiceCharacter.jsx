@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ChoiceCharacter.css'
 import ChristianImg from '../image/freepik__a-photorealistic-portrait-of-a-middle-eastern-man-__83040-removebg-preview.png'
 import MonkImg from '../image/freepik__the-style-is-modern-and-it-is-a-detailed-illustrat__83038-removebg-preview.png'
@@ -28,6 +28,14 @@ const cardData = [
 //리액트에서 이미지 src 설정 -> 이미지 주소 import
 const ChoiceCharacter = ({ nextStep, getCharacterData }) => {  
 
+  //캐릭터 선택이 안됐을시 버튼 잠금하는 상태변수
+  const [selectedRole, setSelectedRole] = useState(null);
+
+  //캐릭터 선택시 selectedRole에 해당 캐릭터 role 세팅
+  const foo = (role) => setSelectedRole(role);
+
+  //isSelected == 카드가 리렌더링될때 selectedRole과 해당 카드의 role이 같으면 style을 부여한다
+
   return (
     <div className='container'>
       <div className='imgbox'>
@@ -39,12 +47,14 @@ const ChoiceCharacter = ({ nextStep, getCharacterData }) => {
            name={card.name}
            role={card.role}
            description={card.description} 
-           getCharacterData={getCharacterData}                   
+           getCharacterData={getCharacterData}   
+           onSelect={foo}  
+           isSelected={card.role === selectedRole}              
            />
           ))}        
 
       </div>
-      <button className='next-btn' onClick={nextStep}>다음</button>
+      <button className='next-btn' onClick={nextStep} disabled={selectedRole === null}>다음</button>
     </div>
   )
 }
