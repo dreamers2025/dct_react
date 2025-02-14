@@ -1,15 +1,10 @@
 import React from "react";
 import './Card.css'
-const Card = ({src,name,role,description}) => {
-
-    const onSubmit = () => {
-       console.log(src);
-       console.log(name);
-       console.log(role);                    
-    };
-
+const Card = ({src,name,role,description, getCharacterData}) => {    
+    
+   
   return (
-    <div className="imgcard" onClick={onSubmit}>
+    <div className="imgcard" onClick={()=>getCharacterData(role)}>
       
       <div className="imgframe">
         <img src={src} alt={name} />

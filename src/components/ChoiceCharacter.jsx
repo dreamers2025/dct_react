@@ -7,7 +7,7 @@ import Card from './Card'
 
 //ai 캐릭터 선택 컴포넌트
 
-//카드 데이터터
+//카드 데이터
 const cardData = [
   {
     id: 1,
@@ -26,7 +26,7 @@ const cardData = [
 ];
 
 //리액트에서 이미지 src 설정 -> 이미지 주소 import
-const ChoiceCharacter = ({ nextStep }) => {
+const ChoiceCharacter = ({ nextStep, getCharacterData }) => {  
 
   return (
     <div className='container'>
@@ -38,7 +38,8 @@ const ChoiceCharacter = ({ nextStep }) => {
            src={card.imageSrc}
            name={card.name}
            role={card.role}
-           description={card.description}
+           description={card.description} 
+           getCharacterData={getCharacterData}                   
            />
           ))}        
 
