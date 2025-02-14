@@ -19,7 +19,7 @@ const StartPage = () => {
   return (    
       <>
         {step === 0 && <StartComponent nextStep={nextStep}/>}
-        {step === 1 && <ChoiceCharacter/>}
+        {step === 1 && <ChoiceCharacter nextStep={nextStep}/>}
         {step === 2 && <UserExperience/>}
         {step === 3 && <DreamContents/>}
       </>      
