@@ -1,0 +1,18 @@
+.imgcard {
+    width: 200px;    
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .imgframe {  
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  p{
+      color: #fff;
+  }
