@@ -16,15 +16,7 @@
   gap: 20px;
 }
 
-.imgcard {
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-}
 
-img {
-  width: 100%;
-}
 
 .next-btn {
   width: 20%;

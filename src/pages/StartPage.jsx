@@ -6,7 +6,7 @@ import UserExperience from "../components/UserExperience";
 import DreamContents from "../components/DreamContents";
 
 
-const StartPage = () => {
+const StartPage = () => {  
 
   //상태값을 처리하는 함수
   const [step,setStep] = useState(0);
