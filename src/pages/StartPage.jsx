@@ -20,7 +20,7 @@ const StartPage = () => {
   //부모 컴포넌트에서 상태관리 , 자식 컴포넌트에 함수를 내려주기
   const nextStep = () => {
     setStep(step + 1);
-  };
+  };  
 
   const getCharacterData = (data)=> {
     console.log(data);

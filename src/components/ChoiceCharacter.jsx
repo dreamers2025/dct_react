@@ -37,25 +37,28 @@ const ChoiceCharacter = ({ nextStep, getCharacterData }) => {
   //isSelected == 카드가 리렌더링될때 selectedRole과 해당 카드의 role이 같으면 style을 부여한다
 
   return (
-    <div className='container'>
-      <div className='imgbox'>
+    <>
+      <div className='container'>
+        <div className='imgbox'>
 
-        {cardData.map((card)=>(
-          <Card
-           key={card.id}
-           src={card.imageSrc}
-           name={card.name}
-           role={card.role}
-           description={card.description} 
-           getCharacterData={getCharacterData}   
-           onSelect={foo}  
-           isSelected={card.role === selectedRole}              
-           />
-          ))}        
+          {cardData.map((card)=>(
+            <Card
+            key={card.id}
+            src={card.imageSrc}
+            name={card.name}
+            role={card.role}
+            description={card.description} 
+            getCharacterData={getCharacterData}   
+            onSelect={foo}  
+            isSelected={card.role === selectedRole}              
+            />
+            ))}        
 
+        </div>
+        <button className='next-btn' onClick={nextStep} disabled={selectedRole === null}>다음</button>
       </div>
-      <button className='next-btn' onClick={nextStep} disabled={selectedRole === null}>다음</button>
-    </div>
+      <div className="moon" style={{top:'5%' , right: '35%'}} ></div>
+    </>
   )
 }
 
