@@ -5,10 +5,13 @@ import React from "react";
 const StartComponent = ( { nextStep } ) => {   
 
   return (
-    <div className="overlay">
-      <h1 className="title">해몽</h1>
-      <button className="start-btn" onClick={nextStep}>시작하기</button>
-    </div>
+    <>
+      <div className="overlay">
+        <h1 className="title">해몽</h1>
+        <button className="start-btn" onClick={nextStep}>시작하기</button>
+      </div>
+      <div className="moon"></div>
+    </>
   );
 };
 
