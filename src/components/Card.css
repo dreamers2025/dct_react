@@ -16,3 +16,15 @@ img {
 p{
     color: #fff;
 }
+
+.imgcard .glow {
+  position: absolute;
+  top: -15px; /* 후광 효과가 카드 상단에만 나오도록 위치 설정 */
+  left: 0;
+  right: 0;
+  height: 20px; /* 후광 효과의 높이 */
+  background: rgba(255, 255, 255, 0.8); /* 밝은 빛을 위한 색 */
+  box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.6); /* 상단에 빛나는 효과 */
+  border-radius: 50%; /* 후광을 부드럽게 */
+  z-index: -1; /* 카드의 다른 내용보다 뒤로 가도록 설정 */
+}

@@ -11,7 +11,7 @@ const Card = ({ src, name, role, description, getCharacterData, onSelect, isSele
       className="imgcard"
       onClick={bar}
       style={{
-        border: isSelected ? '4px solid red' : 'none'
+        position: 'relative',  // 후광 효과를 적용할 위치를 잡기 위해 사용
       }}
     >
       <div className="imgframe">
@@ -20,6 +20,11 @@ const Card = ({ src, name, role, description, getCharacterData, onSelect, isSele
 
       <p>{role}</p>
       <p>{description}</p>
+
+      {/* 선택된 상태에서 후광 효과 추가 */}
+      {isSelected && (
+        <div className="glow"></div>
+      )}
     </div>
   );
 };
