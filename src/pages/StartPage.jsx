@@ -43,20 +43,25 @@ const StartPage = () => {
     setStep(step + 1);
   };    
 
-  //사용자가 선택한 캐릭터 데이터 받아오기기
+  //사용자가 선택한 캐릭터 데이터 받아오기
   const getCharacterData = (data)=> {
     const selectedCard = cardData.filter(card => card.role === data); //선택된 카드 객체 필터링    
     setInterpreterType(data);  // 롤 세팅  
     setFilteredCard(selectedCard); // 선택된 카드 세팅       
   };  
 
-  //사용자 경험 받아오기기
+  //사용자 경험 받아오기
   const getUserExperience = (data) => {
         console.log(data);        
         setExperience(data);      
   }
 
-  //서버로 보낼 데이터 값값
+  //사용자 꿈 받아오기
+  const getUserDreamContents = (data) => {
+    setDreamContent(data)
+  }
+
+  //서버로 보낼 데이터 값
   const payload = {
     interpreterType,
     experience,
@@ -68,7 +73,7 @@ const StartPage = () => {
         {step === 0 && <StartComponent nextStep={nextStep}/>}
         {step === 1 && <ChoiceCharacter nextStep={nextStep} getCharacterData={getCharacterData} cardData={cardData}/>}
         {step === 2 && <UserExperience nextStep={nextStep} getUserExperience={getUserExperience} filteredCard={filteredCard} />}
-        {step === 3 && <DreamContents nextStep={nextStep} filteredCard={filteredCard} payload={payload} />}
+        {step === 3 && <DreamContents nextStep={nextStep} getUserDreamContents={getUserDreamContents} filteredCard={filteredCard} payload={payload} />}
       </>          
   );
 };
