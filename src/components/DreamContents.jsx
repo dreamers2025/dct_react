@@ -1,10 +1,16 @@
 import React from 'react'
-
+import SelectedCard from './SelectedCard'
+import './DreamContents.css'
 //꿈 입력 페이지 컴포넌트
-const DreamContents = () => {
+const DreamContents = ({ nextStep, filteredCard }) => {
   return (
     <>
-      <h1>꿈 내용 페이지입니다.</h1>
+      <div className='container'>
+        <div className='imgbox'>          
+            <SelectedCard filteredCard={filteredCard}/>          
+        </div>
+        <button className='next-btn' onClick={nextStep}>다음</button>
+      </div>
       <div className="moon" style={{left: '15%'}}></div>
     </>
   )

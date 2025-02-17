@@ -54,7 +54,7 @@ const StartPage = () => {
         {step === 0 && <StartComponent nextStep={nextStep}/>}
         {step === 1 && <ChoiceCharacter nextStep={nextStep} getCharacterData={getCharacterData} cardData={cardData}/>}
         {step === 2 && <UserExperience nextStep={nextStep} filteredCard={filteredCard} />}
-        {step === 3 && <DreamContents/>}
+        {step === 3 && <DreamContents nextStep={nextStep} filteredCard={filteredCard} />}
       </>          
   );
 };
