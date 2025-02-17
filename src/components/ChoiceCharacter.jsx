@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './ChoiceCharacter.css'
 import Card from './Card'
 
-
 //ai 캐릭터 선택 컴포넌트
 
 //리액트에서 이미지 src 설정 -> 이미지 주소 import
@@ -15,7 +14,6 @@ const ChoiceCharacter = ({ nextStep, getCharacterData ,cardData}) => {
   const foo = (role) => setSelectedRole(role);
 
   //isSelected == 카드가 리렌더링될때 selectedRole과 해당 카드의 role이 같으면 style을 부여한다
-
   return (
     <>
       <div className='container'>
@@ -33,7 +31,6 @@ const ChoiceCharacter = ({ nextStep, getCharacterData ,cardData}) => {
             isSelected={card.role === selectedRole}              
             />
             ))}        
-
         </div>
         <button className='next-btn' onClick={nextStep} disabled={selectedRole === null}>다음</button>
       </div>
