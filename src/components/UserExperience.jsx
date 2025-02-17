@@ -1,10 +1,16 @@
 import React from 'react'
-
+import './UserExperience.css'
+import SelectedCard from './SelectedCard'
 //최근 고민거리 컴포넌트
-const UserExperience = () => {
+const UserExperience = ({ nextStep, filteredCard }) => {
   return (
     <>
-      <h1>사용자 경험 페이지입니다.</h1>
+      <div className='container'>
+        <div className='imgbox'>          
+            <SelectedCard filteredCard={filteredCard}/>          
+        </div>
+        <button className='next-btn' onClick={nextStep}>다음</button>
+      </div>
       <div className="moon" style={{top:'5%' , left: '35%'}} ></div>
     </>
   )
