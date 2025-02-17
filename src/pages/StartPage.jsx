@@ -5,6 +5,27 @@ import ChoiceCharacter from "../components/ChoiceCharacter";
 import UserExperience from "../components/UserExperience";
 import DreamContents from "../components/DreamContents";
 
+//카드 데이터 StartPage에서 관리
+import ChristianImg from '../image/freepik__a-photorealistic-portrait-of-a-middle-eastern-man-__83040-removebg-preview.png'
+import MonkImg from '../image/freepik__the-style-is-modern-and-it-is-a-detailed-illustrat__83038-removebg-preview.png'
+//카드 데이터
+const cardData = [
+  {
+    id: 1,
+    name: '스님',
+    role: '스님',
+    imageSrc: MonkImg, // 스님의 사진 경로
+    description: '이것은 스님입니다.'
+  },
+  {
+    id: 2,
+    name: '기독교인',
+    role: '기독교인',
+    imageSrc: ChristianImg, // 기독교인의 사진 경로
+    description: '이것은 기독교인입니다.'
+  }
+];
+
 
 const StartPage = () => {  
 
@@ -36,7 +57,7 @@ const StartPage = () => {
   return (    
       <>
         {step === 0 && <StartComponent nextStep={nextStep}/>}
-        {step === 1 && <ChoiceCharacter nextStep={nextStep} getCharacterData={getCharacterData}/>}
+        {step === 1 && <ChoiceCharacter nextStep={nextStep} getCharacterData={getCharacterData} cardData={cardData}/>}
         {step === 2 && <UserExperience/>}
         {step === 3 && <DreamContents/>}
       </>      
