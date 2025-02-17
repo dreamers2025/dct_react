@@ -8,6 +8,7 @@ import DreamContents from "../components/DreamContents";
 //카드 데이터 StartPage에서 관리
 import ChristianImg from '../image/freepik__a-photorealistic-portrait-of-a-middle-eastern-man-__83040-removebg-preview.png'
 import MonkImg from '../image/freepik__the-style-is-modern-and-it-is-a-detailed-illustrat__83038-removebg-preview.png'
+
 //카드 데이터
 const cardData = [
   {
@@ -68,6 +69,7 @@ const StartPage = () => {
     dreamContent,
   }
 
+  //step 증가에 따라 컴포넌트 렌더링
   return (    
       <>
         {step === 0 && <StartComponent nextStep={nextStep}/>}
