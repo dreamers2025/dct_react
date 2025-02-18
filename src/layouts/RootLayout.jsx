@@ -9,6 +9,7 @@ const RootLayout = () => {
         <Outlet />      
       
       <div className="stars"></div>
+      <button className='login-btn'>로그인</button>
     </div>
   )
 }
