@@ -42,6 +42,11 @@ const StartPage = () => {
   //부모 컴포넌트에서 상태관리 , 자식 컴포넌트에 함수를 내려주기
   const nextStep = () => {
     setStep(step + 1);
+  }; 
+  
+  //이전 버튼튼
+  const prevStep = () => {
+    setStep(step - 1);
   };    
 
   //사용자가 선택한 캐릭터 데이터 받아오기
@@ -73,9 +78,9 @@ const StartPage = () => {
   return (    
       <>
         {step === 0 && <StartComponent nextStep={nextStep}/>}
-        {step === 1 && <ChoiceCharacter nextStep={nextStep} getCharacterData={getCharacterData} cardData={cardData}/>}
-        {step === 2 && <UserExperience nextStep={nextStep} getUserExperience={getUserExperience} filteredCard={filteredCard} />}
-        {step === 3 && <DreamContents nextStep={nextStep} getUserDreamContents={getUserDreamContents} filteredCard={filteredCard} payload={payload} />}
+        {step === 1 && <ChoiceCharacter nextStep={nextStep} prevStep={prevStep} getCharacterData={getCharacterData} cardData={cardData}/>}
+        {step === 2 && <UserExperience nextStep={nextStep} prevStep={prevStep} getUserExperience={getUserExperience} filteredCard={filteredCard} />}
+        {step === 3 && <DreamContents nextStep={nextStep} prevStep={prevStep} getUserDreamContents={getUserDreamContents} filteredCard={filteredCard} payload={payload} />}
       </>          
   );
 };

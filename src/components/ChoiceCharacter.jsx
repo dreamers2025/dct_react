@@ -5,7 +5,7 @@ import Card from './Card'
 //캐릭터 선택 컴포넌트
 
 //리액트에서 이미지 src 설정 -> 이미지 주소 import
-const ChoiceCharacter = ({ nextStep, getCharacterData ,cardData}) => {  
+const ChoiceCharacter = ({ nextStep, prevStep, getCharacterData ,cardData}) => {  
 
   //캐릭터 선택이 안됐을시 버튼 잠금하는 상태변수
   const [selectedRole, setSelectedRole] = useState(null);
@@ -33,7 +33,10 @@ const ChoiceCharacter = ({ nextStep, getCharacterData ,cardData}) => {
             />
             ))}        
         </div>
-        <button className='next-btn' onClick={nextStep} disabled={selectedRole === null}>다음</button>
+        <div className='btn-box'>
+          <button className='prev-btn' onClick={prevStep} >이전</button>
+          <button className='next-btn' onClick={nextStep} disabled={selectedRole === null}>다음</button>
+        </div>        
       </div>
       <div className="moon" style={{top:'5%' , right: '35%'}} ></div>
     </>

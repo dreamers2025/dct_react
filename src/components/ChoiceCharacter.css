@@ -1,3 +1,4 @@
+/* card img style */
 .container {
   width: 30%;
   display: flex;
@@ -17,6 +18,12 @@
 }
 
 
+/* 버튼 style */
+.btn-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .next-btn {
   width: 20%;
@@ -36,7 +43,27 @@
   box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
 }
 
+/* 버튼 잠금 */
 .next-btn[disabled] {
     cursor: not-allowed;
     background: gray;
+}
+
+
+.prev-btn {
+  width: 20%;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+.prev-btn:hover {
+  transform: scale(1);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
 }

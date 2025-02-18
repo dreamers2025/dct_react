@@ -1,24 +1,5 @@
-/* card img style */
-.container {
-    width: 30%;
-    display: flex;
-    flex-direction: column;  
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    z-index: 1;
-  }
-  
-  .imgbox {
-    width: 100%;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-  }
-  
-  /* 버튼 style */
-  .btn-box {
+/* 버튼 style */
+.btn-box {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -40,12 +21,7 @@
   .next-btn:hover {
     transform: scale(1);
     box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
-  }
-  
-  .next-btn[disabled] {
-      cursor: not-allowed;
-      background: gray;
-  }
+  }  
 
   .prev-btn {
     width: 20%;
