@@ -30,6 +30,19 @@
     pointer-events: none;
     animation: twinkle 1.5s infinite alternate;
   }
+
+  /* 로그인버튼 */
+  .login-btn {
+    all: unset;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: glow 1.5s ease-in-out infinite alternate;
+    position: absolute;
+    top: 2%;
+    right: 3%;
+  }
   
   /* 달 스타일 */
   .moon {
