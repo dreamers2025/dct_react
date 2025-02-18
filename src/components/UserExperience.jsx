@@ -3,7 +3,7 @@ import './UserExperience.css'
 import SelectedCard from './SelectedCard'
 
 //최근 고민거리 컴포넌트
-const UserExperience = ({ nextStep, getUserExperience, filteredCard }) => {  
+const UserExperience = ({ nextStep,prevStep, getUserExperience, filteredCard }) => {  
 
   return (
     <>
@@ -12,7 +12,10 @@ const UserExperience = ({ nextStep, getUserExperience, filteredCard }) => {
             <SelectedCard filteredCard={filteredCard}/>          
         </div>
         <input onChange={e => getUserExperience(e.target.value)}/> 
-        <button className='next-btn' onClick={nextStep}>다음</button>
+        <div className='btn-box'>
+          <button className='prev-btn' onClick={prevStep} >이전</button>
+          <button className='next-btn' onClick={nextStep} >다음</button>
+        </div>
       </div>
       <div className="moon" style={{top:'5%' , left: '35%'}} ></div>
     </>
