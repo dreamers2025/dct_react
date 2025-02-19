@@ -32,7 +32,7 @@ const MainNavigation = () => {
 
             {/* 우측 1 비율 로그인 버튼, 왼쪽 정렬 */}
             <div className={styles.right}>
-                <button className={styles["login-btn"]}>로그인</button>
+                <NavLink to='/login' className={styles["login-btn"]}>로그인</NavLink>
             </div>
         </nav>
     );

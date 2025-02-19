@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+.form {
+  font-family: "Noto Sans KR", serif;
+  background: rgba($color: #ffffff, $alpha: 0.2);
+  padding: 2rem;
+  max-width: 40rem;
+  margin: 1.5rem auto;
+
+  label,
+  input,
+  textarea {
+    font-family: "Noto Sans KR", serif;
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  input,
+  textarea {
+    font-family: "Noto Sans KR", serif;
+    padding: 0.25rem;
+    z-index: 10;
+    background: white;
+
+  }
+}
+
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+
+  button {
+    width: 100%;
+    margin: 1rem 0  ;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: "Noto Sans KR", serif;
+    cursor: pointer;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    border: none;
+
+    &:hover {
+      background-color: skyblue;
+    }
+  }
+}
+
+
+
+
