@@ -64,3 +64,28 @@
     transform: scale(1);
     box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
   }
+
+   /* 대화상자  */
+   input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #4b3f72; /* 밤하늘을 연상시키는 어두운 보라색 */
+    background-color: #2d2d54; /* 밤하늘 색상 */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  input::placeholder {
+    color: #d0c9f2; /* 별빛처럼 부드러운 밝은 색상 */
+  }
+  
+  input:focus {
+    background-color: #4a3d70; /* 포커스 시 조금 더 밝은 보라색 */
+    border-color: #9e7bff; /* 포커스 시 별빛처럼 반짝이는 보라색 */
+  }

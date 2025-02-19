@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.css";
-const Card = ({ src, name, role, description, getCharacterData, onSelect, isSelected }) => {
+const Card = ({ src, name, role, description, issueQuestion, dreamQuestion, getCharacterData, onSelect, isSelected }) => {
   const bar = () => {
     getCharacterData(role);
     onSelect(role);

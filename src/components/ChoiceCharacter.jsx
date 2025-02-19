@@ -27,6 +27,8 @@ const ChoiceCharacter = ({ nextStep, prevStep, getCharacterData ,cardData}) => {
             name={card.name}
             role={card.role}
             description={card.description} 
+            issueQuestion={card.issueQuestion}
+            dreamQuestion={card.dreamQuestion}
             getCharacterData={getCharacterData}   
             onSelect={foo}  
             isSelected={card.role === selectedRole}              
