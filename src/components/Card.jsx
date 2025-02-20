@@ -18,8 +18,7 @@ const Card = ({ src, name, role, description, issueQuestion, dreamQuestion, getC
     >
       <div className="imgframe">
         <img src={src} alt={name} />
-      </div>
-      <p>{role}</p>            
+      </div>                 
       {step === 1 && <p>{description}</p>}
       {step === 2 && <p>{issueQuestion}</p>}
       {step === 3 && <p>{dreamQuestion}</p>}
