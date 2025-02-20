@@ -1,4 +1,4 @@
-$light-yellow: #ffffe7;
+$light-yellow: #ececb4;
 
 .header {
   padding: 2rem;
@@ -28,11 +28,15 @@ nav {
 a {
   text-decoration: none;
   color: $light-yellow;
+  font-weight: 500;
 
-  &:hover,
+  &:hover {
+    color: lighten($light-yellow, 10%);
+  }
+
   &.active {
-    color: $light-yellow;
-    text-decoration: underline;
+    font-weight: 600;
+    border-bottom: 3px solid $light-yellow;
   }
 }
 
