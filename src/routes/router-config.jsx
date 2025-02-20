@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import StartPage from "../pages/StartPage";
 import RootLayout from "../layouts/RootLayout";
 import LoginPage from "../pages/auth/LoginPage";
-import SignUpPage from "../pages/auth/SignUpPage";
+import SignUpPage, {action as signUpAction} from "../pages/auth/SignUpPage";
 
 
 
@@ -25,7 +25,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'signup',
-        element: <SignUpPage />
+        element: <SignUpPage />,
+        action: signUpAction
       }
     ]
   },  

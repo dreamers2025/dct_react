@@ -44,13 +44,21 @@
     background-color: white;
     color: black;
     border: none;
-
+    
     &:hover {
       background-color: skyblue;
     }
   }
 }
 
+.misMatch{
+  font-family: "Noto Sans KR", serif;
+  font-size: 0.8rem;
+  margin: 0 auto;
+  color: orange;
+}
 
 
-
+.disabled{
+  color: #dfdfdf !important;
+}
