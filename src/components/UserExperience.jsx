@@ -3,13 +3,13 @@ import './UserExperience.css'
 import SelectedCard from './SelectedCard'
 import Button from './Button'
 //최근 고민거리 컴포넌트
-const UserExperience = ({ nextStep,prevStep, getUserExperience, filteredCard }) => {  
+const UserExperience = ({ nextStep,prevStep, getUserExperience, filteredCard ,step}) => {  
 
   return (
     <>
       <div className='container'>
         <div className='imgbox'>          
-            <SelectedCard filteredCard={filteredCard}/>          
+            <SelectedCard filteredCard={filteredCard} step={step}/>          
         </div>
         <input onChange={e => getUserExperience(e.target.value)}/> 
         <Button nextStep={nextStep} prevStep={prevStep}/>

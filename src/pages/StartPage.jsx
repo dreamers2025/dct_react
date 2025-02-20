@@ -16,14 +16,18 @@ const cardData = [
     name: '스님',
     role: '스님',
     imageSrc: MonkImg, // 스님의 사진 경로
-    description: '이것은 스님입니다.'
+    description: '" 허허, 마음을 비우면 답은 자연히 오는 법이오. "',
+    issueQuestion: '" 그대는 무슨 고민을 품고 있소 ? 모든 것이 덧없고, 지나가는 일들에 지나지 않으니, 잠시 그 마음을 내려놓고, 깊은 고요 속에서 그 답을 찾으시게나. "',
+    dreamQuestion: '" 허허, 그런 고민이 있으셨군요. 이제, 그대의 꿈 이야기를 들려주시오. 내가 답을 찾아드리리라. "'
   },
   {
     id: 2,
     name: '기독교인',
     role: '기독교인',
     imageSrc: ChristianImg, // 기독교인의 사진 경로
-    description: '이것은 기독교인입니다.'
+    description: '" 하나님께서는 항상 우리와 함께하시며, 우리의 마음에 평안을 주십니다. 아멘. "',
+    issueQuestion: '" 혹시 마음에 고민거리가 있으신가요 ? 말씀해 주세요. 하나님께서 들으시고, 평안을 주시기 원하십니다." ',
+    dreamQuestion: '" 그런 고민이 있으시군요. 최근에 주님께서 주신 꿈에 특별한 일이 없으셨나요 ? "'
   }
 ];
 
@@ -44,7 +48,7 @@ const StartPage = () => {
     setStep(step + 1);
   }; 
   
-  //이전 버튼튼
+  //이전 버튼
   const prevStep = () => {
     setStep(step - 1);
   };    
@@ -78,9 +82,9 @@ const StartPage = () => {
   return (    
       <>
         {step === 0 && <StartComponent nextStep={nextStep}/>}
-        {step === 1 && <ChoiceCharacter nextStep={nextStep} prevStep={prevStep} getCharacterData={getCharacterData} cardData={cardData}/>}
-        {step === 2 && <UserExperience nextStep={nextStep} prevStep={prevStep} getUserExperience={getUserExperience} filteredCard={filteredCard} />}
-        {step === 3 && <DreamContents nextStep={nextStep} prevStep={prevStep} getUserDreamContents={getUserDreamContents} filteredCard={filteredCard} payload={payload} />}
+        {step === 1 && <ChoiceCharacter nextStep={nextStep} prevStep={prevStep} getCharacterData={getCharacterData} cardData={cardData} step={step}/>}
+        {step === 2 && <UserExperience nextStep={nextStep} prevStep={prevStep} getUserExperience={getUserExperience} filteredCard={filteredCard} step={step} />}
+        {step === 3 && <DreamContents nextStep={nextStep} prevStep={prevStep} getUserDreamContents={getUserDreamContents} filteredCard={filteredCard} step={step} payload={payload} />}
       </>          
   );
 };
