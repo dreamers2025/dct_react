@@ -7,6 +7,7 @@ const LoginForm = () => {
       <Form
         className={styles.form}
         noValidate
+        method="POST"
         // onSubmit={handleSubmit}
       >
         <p>
@@ -15,10 +16,10 @@ const LoginForm = () => {
         </p>
         <p>
           <label htmlFor="password">비밀번호</label>
-          <input id="password" type="url" name="password" required />
+          <input id="password" type="password" name="password" required />
         </p>
         <div className={styles.actions}>
-          <button>로그인</button>
+          <button type="submit">로그인</button>
         </div>
       </Form>
       <div className={styles.box}>

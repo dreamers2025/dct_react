@@ -2,11 +2,11 @@ import React from "react";
 import { redirect } from "react-router-dom";
 import SignUpForm from "../../components/SignUpForm";
 
-const SignUpPage = () => {
+const LoginPage = () => {
   return <SignUpForm />;
 };
 
-export default SignUpPage;
+export default LoginPage;
 
 export const action = async ({ request, params }) => {
   try {
