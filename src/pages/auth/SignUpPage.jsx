@@ -1,6 +1,6 @@
 import React from "react";
 import { redirect } from "react-router-dom";
-import SignUpForm from "../../components/SignUpForm";
+import SignUpForm from "../../components/auth/SignUpForm";
 
 const LoginPage = () => {
   return <SignUpForm />;

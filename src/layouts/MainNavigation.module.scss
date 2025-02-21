@@ -44,6 +44,14 @@ a {
   flex: 1; /* 오른쪽 1 비율 공간 */
   display: flex;
   justify-content: flex-start; /* 왼쪽 정렬 */
+  button{
+    all: unset;
+    font-weight: bold;
+    color: $light-yellow;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: glow 1.5s ease-in-out infinite alternate;
+    cursor: pointer;
+  }
 }
 
 /* 로그인 버튼 */

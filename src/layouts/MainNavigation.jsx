@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import styles from './MainNavigation.module.scss';
+import { useAuth } from '../components/auth/AuthProvider';
 
 const MainNavigation = () => {
+    const {user, logout} = useAuth();
     // NavLink에 className에 바인딩하는 콜백함수
     // 현재 위치한 메뉴 정보를 알려줌
     const activeFn = ({ isActive }) => {
@@ -32,7 +34,11 @@ const MainNavigation = () => {
 
             {/* 우측 1 비율 로그인 버튼, 왼쪽 정렬 */}
             <div className={styles.right}>
-                <NavLink to='/login' className={styles["login-btn"]}>로그인</NavLink>
+                {!user?
+                    <NavLink to='/login' className={styles["login-btn"]}>로그인</NavLink>
+                :<button className={styles["logout-btn"]} onClick={logout}>
+                로그아웃
+            </button>}
             </div>
         </nav>
     );
