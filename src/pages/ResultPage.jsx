@@ -9,7 +9,7 @@ const ResultPage = ({filteredCard , payload}) => {
         try {
           // fetch 요청 (await을 사용하여 비동기 처리)
           const response = await fetch(
-            `http://localhost:8999/api/gemini/dream-interpretation?interpreterType=${payload.interpreterType}&experience=4${payload.experience}&dreamContent=${payload.dreamContent}`
+            `http://localhost:8999/api/gemini/dream-interpretation?interpreterType=${payload.interpreterType}&experience=${payload.experience}&dreamContent=${payload.dreamContent}`
           );
       
           // 응답이 정상인지 확인
