@@ -17,4 +17,20 @@
     gap: 20px;
   } 
   
- 
+ /* 버튼 스타일 */
+.result-btn {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+  }
+  
+  .result-btn:hover {
+    transform: scale(1.0);
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
+  }
