@@ -4,6 +4,7 @@ import StartComponent from "../components/StartComponent";
 import ChoiceCharacter from "../components/ChoiceCharacter";
 import UserExperience from "../components/UserExperience";
 import DreamContents from "../components/DreamContents";
+import ResultPage from "./ResultPage";
 
 //카드 데이터 StartPage에서 관리
 import ChristianImg from '../image/freepik__a-photorealistic-portrait-of-a-middle-eastern-man-__83040-removebg-preview.png'
@@ -85,6 +86,7 @@ const StartPage = () => {
         {step === 1 && <ChoiceCharacter nextStep={nextStep} prevStep={prevStep} getCharacterData={getCharacterData} cardData={cardData} step={step}/>}
         {step === 2 && <UserExperience nextStep={nextStep} prevStep={prevStep} getUserExperience={getUserExperience} filteredCard={filteredCard} step={step} />}
         {step === 3 && <DreamContents nextStep={nextStep} prevStep={prevStep} getUserDreamContents={getUserDreamContents} filteredCard={filteredCard} step={step} payload={payload} />}
+        {step === 4 && <ResultPage filteredCard={filteredCard} payload={payload}/>}
       </>          
   );
 };
