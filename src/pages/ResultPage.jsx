@@ -3,8 +3,12 @@ import './ResultPage.css'
 import SelectedCard from '../components/SelectedCard'
 
 const ResultPage = ({filteredCard , payload}) => {
-    
-  console.log(payload);  
+
+    //테스트
+  console.log(payload);  //서버에 보낼 데이터 객체
+  const ResultData = fetch(`http://localhost:8999/api/gemini/dream-interpretation?interpreterType=${payload.interpreterType}&experience=4${payload.experience}&dreamContent=${payload.dreamContent}`);
+  console.log(ResultData);
+  
   
   return (
     <>
