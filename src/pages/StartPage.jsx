@@ -4,6 +4,8 @@ import StartComponent from "../components/StartComponent";
 import ChoiceCharacter from "../components/ChoiceCharacter";
 import UserExperience from "../components/UserExperience";
 import DreamContents from "../components/DreamContents";
+import ResultPage from "./ResultPage";
+import ShowResults from"../components/ShowResults";
 
 //카드 데이터 StartPage에서 관리
 import ChristianImg from '../image/freepik__a-photorealistic-portrait-of-a-middle-eastern-man-__83040-removebg-preview.png'
@@ -39,8 +41,9 @@ const StartPage = () => {
   const [experience,setExperience] = useState(''); //서버에 전달할 사용자 경험
   const [dreamContent,setDreamContent] = useState(''); //서버에 전달할 사용자 꿈
   const [filteredCard,setFilteredCard] = useState(''); //사용자가 선택한 카드객체
+  const [responseResults,setResponseResults] = useState(null);//최종 결과객체
 
-  //상태값을 처리하는 함수
+  //stept값에 따라 질문지 변경
   const [step,setStep] = useState(0);
 
   //부모 컴포넌트에서 상태관리 , 자식 컴포넌트에 함수를 내려주기
@@ -78,6 +81,12 @@ const StartPage = () => {
     dreamContent,
   }
 
+  //Ai 답변 결과 데이터  
+  const getResults = (data) => {
+    setResponseResults(data);  // 받아온 AI 결과 데이터를 상태에 저장
+  };
+
+
   //step 증가에 따라 컴포넌트 렌더링
   return (    
       <>
@@ -85,6 +94,8 @@ const StartPage = () => {
         {step === 1 && <ChoiceCharacter nextStep={nextStep} prevStep={prevStep} getCharacterData={getCharacterData} cardData={cardData} step={step}/>}
         {step === 2 && <UserExperience nextStep={nextStep} prevStep={prevStep} getUserExperience={getUserExperience} filteredCard={filteredCard} step={step} />}
         {step === 3 && <DreamContents nextStep={nextStep} prevStep={prevStep} getUserDreamContents={getUserDreamContents} filteredCard={filteredCard} step={step} payload={payload} />}
+        {step === 4 && <ResultPage nextStep={nextStep} filteredCard={filteredCard} payload={payload} getResults={getResults}/>}
+        {step === 5 && <ShowResults filteredCard={filteredCard} responseResults={responseResults}/>}
       </>          
   );
 };
