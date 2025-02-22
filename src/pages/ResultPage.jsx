@@ -3,7 +3,7 @@ import './ResultPage.css'
 import SelectedCard from '../components/SelectedCard'
 
 
-const ResultPage = ({filteredCard , payload}) => {    
+const ResultPage = ({ nextStep , filteredCard , payload , getResults }) => {    
   
     const handleClick = async (e) => {
         try {
@@ -21,7 +21,14 @@ const ResultPage = ({filteredCard , payload}) => {
           const responseData = await response.json();
       
           // 응답 데이터 출력
-          console.log(responseData);
+          console.log(responseData);    
+          
+          // getResults에 responseData 전달
+          getResults(responseData);  // 부모 컴포넌트에서 결과를 처리
+
+          //step === 5로 증가
+          nextStep();         
+          
         } catch (error) {
           // 오류 처리
           console.error('Error fetching data:', error);
