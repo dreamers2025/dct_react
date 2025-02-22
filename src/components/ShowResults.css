@@ -35,6 +35,12 @@
     font-size: 1em;
     margin-bottom: 20px;
   }
+
+  .content-title {
+    font-size: 1.4em;
+    color: #ffcc00;
+    animation: glow 1.5s ease-in-out infinite alternate; /* glow효과 부여 */
+  }
   
   /* 닫기 버튼 스타일 */
   .close-btn {
@@ -54,7 +60,7 @@
     background-color: #3e3565; /* 좀 더 어두운 보라색 */
   }
 
-  /* 캐릭터 카드드 */
+  /* 캐릭터 카드 */
   .imgbox {
     width: 100%;
     flex-wrap: wrap;
