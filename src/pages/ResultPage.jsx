@@ -21,9 +21,10 @@ const ResultPage = ({ nextStep , filteredCard , payload , getResults }) => {
           const responseData = await response.json();
       
           // 응답 데이터 출력
-          console.log(responseData);    
+          console.log(responseData);
+          console.log(JSON.stringify(responseData))    
           
-          // getResults에 responseData 전달
+          // getResults에 responseData 전달 
           getResults(responseData);  // 부모 컴포넌트에서 결과를 처리
 
           //step === 5로 증가

@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }) => {
   const fetchUser = async () => {
     const accessToken = localStorage.getItem("accessToken");
     if (!accessToken) {
+      console.log('토큰이 없음')
       setUser(null);
       setLoading(false);
       return;
@@ -45,6 +46,7 @@ export const AuthProvider = ({ children }) => {
     if (response.ok) {
       const userData = await response.json();
       setUser(userData);
+      return userData;
     } else {
       setUser(null);
     }
@@ -78,12 +80,13 @@ export const AuthProvider = ({ children }) => {
   }
 
   // 🔹 마운트 시 로그인 상태 확인
+  // value=undefined인 토큰 들어오면 오류남 나중에 해결하기로...
   useEffect(() => {
     fetchUser();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, login, logout, loading, fetchUser }}>
       {children}
     </AuthContext.Provider>
   );

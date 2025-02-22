@@ -13,9 +13,9 @@ const ShowResults = ({ filteredCard, responseResults }) => {
         </div>
         <div className="result-content">
           <p className="content-title">해몽</p>
-          <p>{responseResults.content}</p> {/* 해몽 */}
+          <p>{responseResults.gemini.content}</p> {/* 해몽 */}
           <p className="content-title">요약</p>
-          <p>{responseResults.summary}</p> {/* 요약 */}
+          <p>{responseResults.gemini.summary}</p> {/* 요약 */}
         </div>
         <button className="close-btn">닫기</button>
       </div>
