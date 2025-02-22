@@ -18,8 +18,13 @@ const Card = ({ src, name, role, description, issueQuestion, dreamQuestion, getC
     >
       <div className="imgframe">
         <img src={src} alt={name} />
-      </div>                 
-      {step === 1 && <p>{description}</p>}
+      </div>      
+      {/* step1에서는 캐릭터 선택시(isSelected로 구별) class를 부여하여 반짝이는 스타일 추가 */}
+      {step === 1 && ( 
+        <p className={isSelected ? "textglow" : ""}>
+          {description}
+        </p>
+      )}       
       {step === 2 && <p>{issueQuestion}</p>}
       {step === 3 && <p>{dreamQuestion}</p>}
       
