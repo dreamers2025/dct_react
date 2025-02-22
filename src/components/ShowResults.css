@@ -1,0 +1,66 @@
+/* 전체 화면을 덮는 어두운 배경 */
+.result-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 어두운 투명 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 다른 요소 위에 보이도록 */
+  }
+  
+  /* 결과창 스타일 */
+  .result-window {
+    background-color: #2d2d54; /* 밤하늘 색상 */
+    border: 2px solid #4b3f72; /* 어두운 보라색 */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  /* 제목 스타일 */
+  .result-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  /* 결과 내용 스타일 */
+  .result-content {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  
+  /* 닫기 버튼 스타일 */
+  .close-btn {
+    background-color: #4b3f72; /* 어두운 보라색 */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+    width: 100%;
+  }
+  
+  /* 닫기 버튼 hover 효과 */
+  .close-btn:hover {
+    background-color: #3e3565; /* 좀 더 어두운 보라색 */
+  }
+
+  .imgbox {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+  } 
