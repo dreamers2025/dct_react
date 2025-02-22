@@ -3,6 +3,8 @@ import StartPage from "../pages/StartPage";
 import RootLayout from "../layouts/RootLayout";
 import LoginPage from "../pages/auth/LoginPage";
 import SignUpPage, {action as signUpAction} from "../pages/auth/SignUpPage";
+import DreamLogPage from "../pages/DreamLogPage.jsx";
+import ErrorPage from "../pages/ErrorPage.jsx";
 
 
 
@@ -14,6 +16,7 @@ export const router = createBrowserRouter([
   {
     path:'/',
     element:<RootLayout />,
+    errorElement:<ErrorPage />,
     children: [
       {
         path: '/',
@@ -28,6 +31,10 @@ export const router = createBrowserRouter([
         path: 'signup',
         element: <SignUpPage />,
         action: signUpAction
+      },
+      {
+        path: '/dreamlog',
+        element: <DreamLogPage />,
       }
     ]
   },  
