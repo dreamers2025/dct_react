@@ -59,6 +59,24 @@ export const AuthProvider = ({ children }) => {
     alert('로그아웃 되었습니다!')
   };
 
+  // 토큰이 있다면 첨부후 fetch
+  const fetchWithAuth = async (url,options={}) =>{
+    const token = localStorage.getItem('accessToken');
+
+    if(!token){
+      const response = await fetch(url,{...options});
+      return;
+    }
+    const headers = {
+      ...options.headers,
+      Authorization: `bearer ${token}`
+    }
+    const response = await fetch(url,{
+      ...options,
+      headers,
+    });
+  }
+
   // 🔹 마운트 시 로그인 상태 확인
   useEffect(() => {
     fetchUser();
