@@ -1,15 +1,9 @@
 /* 전체 화면을 덮는 어두운 배경 */
-.result-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background-color: rgba(0, 0, 0, 0.7); 어두운 투명 배경 */
+.result-container {       
+    width: 100%;    
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 1000; /* 다른 요소 위에 보이도록 */
+    align-items: center;    
   }
   
   /* 결과창 스타일 */
@@ -67,4 +61,5 @@
     display: flex;
     justify-content: space-evenly;
     gap: 20px;
+    z-index: 1;
   } 
