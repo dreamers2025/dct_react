@@ -3,8 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import styles from "./DreamLogPage.module.scss";
 
 // 해몽가 이미지
-import ChristianImg from '../image/freepik__a-photorealistic-portrait-of-a-middle-eastern-man-__83040-removebg-preview.png'
-import MonkImg from '../image/freepik__the-style-is-modern-and-it-is-a-detailed-illustrat__83038-removebg-preview.png'
+import ChristianImg from '../image/CHRISTIAN.png'
+import MonkImg from '../image/MONK.png'
+
+const interpreterImages = {
+    MONK: MonkImg,
+    JESUS: ChristianImg,
+};
+
 
 const DreamLogPage = () => {
 
@@ -60,7 +66,7 @@ const DreamLogPage = () => {
     return (
         <div className={styles.container}>
             {dreamLogs.map((dream) => (
-                <div key={dream.id} className={styles.logCard}>
+                <div key={dream.dreamId} className={styles.logCard}>
                     {/* 상단: 작성일 & 한 줄 요약 */}
                     <div className={styles.header}>
                         <span className={styles.date}>{dream.date}</span>
@@ -69,10 +75,11 @@ const DreamLogPage = () => {
 
                     {/* 본문: 좌측 캐릭터 이미지 + 우측 말풍선 해몽 */}
                     <div className={styles.content}>
-                        <img src={dream.characterImg} alt="해몽가" className={styles.characterImg} />
+
+                        <img src={interpreterImages[dream.interpreter]} alt="해몽가" className={styles.characterImg} />
                         <div className={styles.bubbleContainer}>
                             <div className={styles.bubble}>
-                                {dream.interpretation}
+                                {dream.content}
                             </div>
                         </div>
                     </div>

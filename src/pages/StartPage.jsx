@@ -8,15 +8,15 @@ import ResultPage from "./ResultPage";
 import ShowResults from"../components/ShowResults";
 
 //카드 데이터 StartPage에서 관리
-import ChristianImg from '../image/freepik__a-photorealistic-portrait-of-a-middle-eastern-man-__83040-removebg-preview.png'
-import MonkImg from '../image/freepik__the-style-is-modern-and-it-is-a-detailed-illustrat__83038-removebg-preview.png'
+import ChristianImg from '../image/CHRISTIAN.png'
+import MonkImg from '../image/MONK.png'
 
 //카드 데이터
 const cardData = [
   {
     id: 1,
     name: '스님',
-    role: '스님',
+    role: 'MONK',
     imageSrc: MonkImg, // 스님의 사진 경로
     description: '" 허허, 마음을 비우면 답은 자연히 오는 법이오. "',
     issueQuestion: '" 그대는 무슨 고민을 품고 있소 ? 모든 것이 덧없고, 지나가는 일들에 지나지 않으니, 잠시 그 마음을 내려놓고, 깊은 고요 속에서 그 답을 찾으시게나. "',
@@ -25,7 +25,7 @@ const cardData = [
   {
     id: 2,
     name: '기독교인',
-    role: '기독교인',
+    role: 'CHRISTIAN',
     imageSrc: ChristianImg, // 기독교인의 사진 경로
     description: '" 하나님께서는 항상 우리와 함께하시며, 우리의 마음에 평안을 주십니다. 아멘. "',
     issueQuestion: '" 혹시 마음에 고민거리가 있으신가요 ? 말씀해 주세요. 하나님께서 들으시고, 평안을 주시기 원하십니다." ',
