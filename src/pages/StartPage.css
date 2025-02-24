@@ -33,35 +33,3 @@
   transform: scale(1.0);
   box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
 }
-
-/* 달 스타일 */
-.moon {
-  position: absolute;
-  top: 10%;
-  right: 15%;
-  width: 150px;
-  height: 150px;
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
-  animation: moonMovement 15s infinite linear;
-}
-
-/* 달의 움직임 (가볍게 흔들리거나 회전) */
-@keyframes moonMovement {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  25% {
-    transform: translateX(20px) translateY(10px);
-  }
-  50% {
-    transform: translateX(40px) translateY(20px);
-  }
-  75% {
-    transform: translateX(20px) translateY(10px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-}
