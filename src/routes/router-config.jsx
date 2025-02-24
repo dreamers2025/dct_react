@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         action: signUpAction
       },
       {
-        path: '/dreamlog',
+        path: '/dreamlog/mydreams',
         element: <DreamLogPage />,
       }
     ]

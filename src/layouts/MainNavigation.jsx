@@ -22,7 +22,7 @@ const MainNavigation = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className={activeFn} to='/dreamlog'>
+                        <NavLink className={activeFn} to='/dreamlog/mydreams'>
                             꿈 기록
                         </NavLink>
                     </li>

@@ -2,6 +2,8 @@
   width: 200px;    
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgframe {  
@@ -16,7 +18,8 @@ img {
 p {      
   padding-top: 10px;
   font-size: 16px;    
-  color: #fff;   
+  color: #fff;    
+  text-align: center; /*텍스트 가운데 정렬*/  
 }
 
 .imgcard .glow {
@@ -29,4 +32,9 @@ p {
   box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.6); /* 상단에 빛나는 효과 */
   border-radius: 50%; /* 후광을 부드럽게 */
   z-index: -1; /* 카드의 다른 내용보다 뒤로 가도록 설정 */
+}
+
+/* isSelected 상태일때 빛나는 스타일 부여 */
+.textglow {
+  animation: glow 1.5s ease-in-out infinite alternate;
 }
