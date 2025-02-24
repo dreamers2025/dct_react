@@ -18,6 +18,9 @@
 
   input,
   textarea {
+    all: unset;
+    color: black;
+    text-align: start;
     font-family: "Noto Sans KR", serif;
     padding: 0.25rem;
     z-index: 10;
