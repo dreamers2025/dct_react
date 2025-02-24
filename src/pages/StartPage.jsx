@@ -65,7 +65,6 @@ const StartPage = () => {
 
   //사용자 경험 받아오기
   const getUserExperience = (data) => {
-        console.log(data);        
         setExperience(data);      
   }
 

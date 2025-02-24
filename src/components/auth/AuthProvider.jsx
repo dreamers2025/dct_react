@@ -64,7 +64,6 @@ export const AuthProvider = ({ children }) => {
   // 토큰이 있다면 첨부후 fetch
   const fetchWithAuth = async (url,options={}) =>{
     const token = localStorage.getItem('accessToken');
-
     if(!token){
       const response = await fetch(url,{...options});
       return;
@@ -77,6 +76,7 @@ export const AuthProvider = ({ children }) => {
       ...options,
       headers,
     });
+    return response;
   }
 
   // 🔹 마운트 시 로그인 상태 확인
@@ -86,7 +86,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading, fetchUser }}>
+    <AuthContext.Provider value={{ user, login, logout, loading, fetchUser,fetchWithAuth }}>
       {children}
     </AuthContext.Provider>
   );

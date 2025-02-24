@@ -5,6 +5,7 @@ import LoginPage from "../pages/auth/LoginPage";
 import SignUpPage, {action as signUpAction} from "../pages/auth/SignUpPage";
 import DreamLogPage from "../pages/DreamLogPage.jsx";
 import ErrorPage from "../pages/ErrorPage.jsx";
+import MyPage from "../pages/MyPage.jsx";
 
 
 //라우터 설정
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: '/dreamlog/mydreams',
         element: <DreamLogPage />,
+      },
+      {
+        path: '/mypage',
+        element: <MyPage />
       }
     ]
   },  

@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+
+.container {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .profileCard {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 700px;
+    min-height: 400px;
+    z-index: 100;
+  }
+  .name{
+    font-family: "Noto Sans KR", serif;
+  }
+}
