@@ -100,3 +100,39 @@ $border-color: rgba(255, 204, 0, 0.4);
     transform: translateY(0);
   }
 }
+
+// 꿈 미등록
+.noDreamLogsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: $bg-color;
+  padding: 20px;
+  text-align: center;
+}
+
+.noDreamLogsMessage {
+  font-size: 1.5rem;
+  color: $primary-color;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid $primary-color;
+  animation: fadeIn 0.6s ease-in-out;
+  max-width: 500px;
+  margin-top: 20px;
+  font-family: "Orbitron", sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

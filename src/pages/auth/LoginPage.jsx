@@ -1,23 +1,8 @@
-import {useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { redirect } from 'react-router-dom';
 import LoginForm from '../../components/auth/LoginForm';
-import {useAuth} from '../../components/auth/AuthProvider'
 
 const LoginPage = () => {
-  const {fetchUser} = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(()=>{
-    const userCheck = async () => {
-      const response = await fetchUser();
-      console.log(response)
-      if(response){
-        navigate('/');
-      }
-    }
-    userCheck();
-  },[])
-
   return (
     <LoginForm />
   )
