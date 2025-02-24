@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         element: <StartPage />,
       },
       {
-        path: '/dreamlog',
+        path: '/dreamlog/mydreams',
         element: <DreamLogPage />,
       }
     ]
