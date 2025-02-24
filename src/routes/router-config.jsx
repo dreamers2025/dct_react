@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import StartPage from "../pages/StartPage";
 import RootLayout from "../layouts/RootLayout";
+import LoginPage from "../pages/auth/LoginPage";
+import SignUpPage, {action as signUpAction} from "../pages/auth/SignUpPage";
 import DreamLogPage from "../pages/DreamLogPage.jsx";
 import ErrorPage from "../pages/ErrorPage.jsx";
 
@@ -18,6 +20,16 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <StartPage />,
+      },  
+      {
+        path: 'login',
+        element: <LoginPage />,
+        // action: loginAction
+      },
+      {
+        path: 'signup',
+        element: <SignUpPage />,
+        action: signUpAction
       },
       {
         path: '/dreamlog/mydreams',
