@@ -34,6 +34,8 @@
   .result-content {
     font-size: 1em;
     margin-bottom: 20px;
+    white-space: pre-wrap;
+
   }
 
   .content-title {
