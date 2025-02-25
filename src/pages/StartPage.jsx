@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Startpage.css'
+import './Startpage.css';
 import StartComponent from "../components/StartComponent";
 import ChoiceCharacter from "../components/ChoiceCharacter";
 import UserExperience from "../components/UserExperience";
@@ -8,10 +8,13 @@ import ResultPage from "./ResultPage";
 import ShowResults from"../components/ShowResults";
 
 //카드 데이터 StartPage에서 관리
-import ChristianImg from '../image/CHRISTIAN.png'
-import MonkImg from '../image/MONK.png'
-import VitriolistImg from '../image/VITRIOLIST.png'
-import RapperImg from '../image/RAPPER.png'
+import ChristianImg from '../image/CHRISTIAN.png';
+import MonkImg from '../image/MONK.png';
+import VitriolistImg from '../image/VITRIOLIST.png';
+import RapperImg from '../image/RAPPER.png';
+import BabyImg from '../image/BABY.png';
+import MansourImg from '../image/MANSOUR.png';
+
 //카드 데이터
 const cardData = [
   {
@@ -49,7 +52,25 @@ const cardData = [
     description: '" Yo, 네 얘기 들려줘, Let’s go! 끝난 후엔 사진 한 장, click 찍어줄게, 우리가 만든 순간을 영원히 남겨두자, 이건 바로 레전드. "',
     issueQuestion: '" Yo, 뭐가 고민이야? 마이크 잡고 풀어봐, 네 이야기가 내 flow로 변하면, 고민 따윈 사라질 테니까, Boom! "',
     dreamQuestion: '" 그래서 무슨 꿈을 꾼 거야? 내가 다 해석해줄게, 네 머릿속의 비트, 내가 풀어내면 완벽하게, 꿈 속에서 무엇을 본 건지, 말해봐, 내 랩처럼 빠르게 풀어줄게, Let’s go! "'
-  },  
+  }, 
+  {
+    id: 5,
+    name: '빙의 된 아기',
+    role: 'POSSESSEDBABY',
+    imageSrc: BabyImg, // 빙의 된 아기의 사진 경로
+    description: '" ... 나, 나를 선택해... 아니면... 후회할지도 몰라... "',
+    issueQuestion: '" 너의 고민거리... 뭐야? 말해봐 … 솔직하게 털어놓는 게 좋을걸... "',
+    dreamQuestion: '" 으… 어떤 꿈인지 기억나? 기억나는 대로 말해봐… 내 친구들한테 물어봐서 알려줄게... 흐흐... "'
+  },
+  {
+    id: 6,
+    name: '만수르',
+    role: 'MANSOUR',
+    imageSrc: MansourImg, // 만수르의 사진 경로
+    description: '" 혹시 알아 나를 선택하면 ... 돈이 흘러넘칠지도 모르잖아? "',
+    issueQuestion: '" 기름이 터져 나오듯, 내게 고민을 쏟아내봐. "',
+    dreamQuestion: '" 꿈 얘기도 들려줘. 좋은 꿈이면... 내가 살 수도 있을 걸? 하하, 내 돈과 기름으로는 뭐든지 할 수 있으니까. 자, 뭐 좋은 꿈이라도 꿨어? "'
+  }, 
 ];
 
 const StartPage = () => {  

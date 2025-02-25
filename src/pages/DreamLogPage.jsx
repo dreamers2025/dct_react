@@ -1,6 +1,7 @@
 import React, { useState , useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from "./DreamLogPage.module.scss";
+// import { useAuth } from "../components/auth/AuthProvider";
 
 // 해몽가 이미지
 import ChristianImg from '../image/CHRISTIAN.png'
@@ -14,11 +15,13 @@ const interpreterImages = {
 
 const DreamLogPage = () => {
 
+    // const {user}=useAuth(); // 로그인 유저 정보
     const [dreamLogs, setDreamLogs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate(); // useNavigate 훅을 사용하여 navigate 함수 선언
 
-    useEffect(() => {
+    useEffect(() => {       
+        
         // 로그인 상태를 확인
         const accessToken = localStorage.getItem('accessToken');
         if (!accessToken) {
