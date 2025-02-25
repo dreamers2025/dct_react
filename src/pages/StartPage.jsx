@@ -81,11 +81,10 @@ const StartPage = () => {
   const [experience,setExperience] = useState(''); //서버에 전달할 사용자 경험
   const [dreamContent,setDreamContent] = useState(''); //서버에 전달할 사용자 꿈
   const [filteredCard,setFilteredCard] = useState(''); //사용자가 선택한 카드객체
-  const [responseResults,setResponseResults] = useState(null);//최종 결과객체
-
+  const [responseResults,setResponseResults] = useState(null);//최종 결과객체  
   //stept값에 따라 질문지 변경
-  const [step,setStep] = useState(0);
-
+  const [step,setStep] = useState(0);  
+  
   //부모 컴포넌트에서 상태관리 , 자식 컴포넌트에 함수를 내려주기
   const nextStep = () => {
     setStep(step + 1);
@@ -96,6 +95,10 @@ const StartPage = () => {
     setStep(step - 1);
   };    
 
+  //홈으로 돌아가기
+  const stepToHome = () => {
+    setStep(0);
+  };
   //사용자가 선택한 캐릭터 데이터 받아오기
   const getCharacterData = (data)=> {
     const selectedCard = cardData.filter(card => card.role === data); //선택된 카드 객체 필터링    
@@ -134,7 +137,7 @@ const StartPage = () => {
         {step === 2 && <UserExperience nextStep={nextStep} prevStep={prevStep} getUserExperience={getUserExperience} filteredCard={filteredCard} step={step} />}
         {step === 3 && <DreamContents nextStep={nextStep} prevStep={prevStep} getUserDreamContents={getUserDreamContents} filteredCard={filteredCard} step={step} payload={payload} />}
         {step === 4 && <ResultPage nextStep={nextStep} filteredCard={filteredCard} payload={payload} getResults={getResults}/>}
-        {step === 5 && <ShowResults filteredCard={filteredCard} responseResults={responseResults}/>}
+        {step === 5 && <ShowResults filteredCard={filteredCard} responseResults={responseResults} stepToHome={stepToHome}/>}
       </>          
   );
 };

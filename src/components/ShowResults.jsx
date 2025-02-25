@@ -6,7 +6,7 @@ import SelectedCard from './SelectedCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons'; // 자물쇠 아이콘
 
-const ShowResults = ({ filteredCard, responseResults }) => {
+const ShowResults = ({ filteredCard, responseResults, stepToHome }) => {
   console.log(responseResults);
 
   // const[userGrade,setUserGrade] = useState('userGrade');  //유료 무료 구분에 따라 변경
@@ -28,7 +28,7 @@ const ShowResults = ({ filteredCard, responseResults }) => {
           <p className="content-title">요약</p>
           <p>{responseResults.gemini.summary}</p> {/* 요약 */}
         </div>
-        <button className="close-btn">닫기</button>
+        <button className="again-btn" onClick={stepToHome}>다시하기</button>
       </div>
     </div>
   );
