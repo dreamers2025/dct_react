@@ -49,20 +49,20 @@ const ResultPage = ({ nextStep , filteredCard , payload , getResults }) => {
       
   if (loading) return <div className='loading'>
     <div className='loading-message'>
-    <span class="wave-text">우</span>
-    <span class="wave-text">주</span>
-    <span class="wave-text">의</span>
-    <span class="wave-text">기</span>
-    <span class="wave-text">운</span>
-    <span class="wave-text">을</span>
-    <span class="wave-text">수</span>
-    <span class="wave-text">신</span>
-    <span class="wave-text">하</span>
-    <span class="wave-text">는</span>
-    <span class="wave-text">중</span>
-    <span class="wave-text">.</span>
-    <span class="wave-text">.</span>
-    <span class="wave-text">.</span>
+    <span className="wave-text">우</span>
+    <span className="wave-text">주</span>
+    <span className="wave-text">의</span>
+    <span className="wave-text">기</span>
+    <span className="wave-text">운</span>
+    <span className="wave-text">을</span>
+    <span className="wave-text">수</span>
+    <span className="wave-text">신</span>
+    <span className="wave-text">하</span>
+    <span className="wave-text">는</span>
+    <span className="wave-text">중</span>
+    <span className="wave-text">.</span>
+    <span className="wave-text">.</span>
+    <span className="wave-text">.</span>
     </div>
     <PuffLoader color="#36d7b7" size={100} />
   </div>;

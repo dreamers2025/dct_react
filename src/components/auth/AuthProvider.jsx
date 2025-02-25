@@ -50,6 +50,7 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
     }
     setLoading(false);
+    return response;
   };
 
   // 🔹 로그아웃 함수
@@ -59,28 +60,37 @@ export const AuthProvider = ({ children }) => {
     alert('로그아웃 되었습니다!')
   };
 
-  // 토큰이 있다면 첨부후 fetch
-  const fetchWithAuth = async (url,options={}) =>{
-    const token = localStorage.getItem('accessToken');
-    if(!token){
-      const response = await fetch(url,{...options});
-      return;
+  const fetchWithAuth = async (url, options = {}) => {
+    const token = localStorage.getItem("accessToken");
+  
+    if (!token) {
+      return fetch(url, { ...options });
     }
+  
     const headers = {
       ...options.headers,
-      Authorization: `bearer ${token}`
+      Authorization: `Bearer ${token}`,
+    };
+  
+    try {
+      const response = await fetch(url, {
+        ...options,
+        headers,
+      });
+  
+      return response;
+    } catch (error) {
+      console.error("fetchWithAuth 요청 실패:", error);
+      throw error;
     }
-    console.log(test)
-    const response = await fetch(url,{
-      ...options,
-      headers,
-    });
-  }
+  };
 
   // 🔹 마운트 시 로그인 상태 확인
   useEffect(() => {
-    fetchUser();
-  }, []);
+    if (!user) {
+      fetchUser();
+    }
+  }, [user]);
 
   return (
     <AuthContext.Provider value={{ user, login, logout, loading, fetchUser,fetchWithAuth }}>
