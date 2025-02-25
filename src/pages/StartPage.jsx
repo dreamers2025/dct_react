@@ -10,7 +10,8 @@ import ShowResults from"../components/ShowResults";
 //카드 데이터 StartPage에서 관리
 import ChristianImg from '../image/CHRISTIAN.png'
 import MonkImg from '../image/MONK.png'
-
+import VitriolistImg from '../image/VITRIOLIST.png'
+import RapperImg from '../image/RAPPER.png'
 //카드 데이터
 const cardData = [
   {
@@ -30,7 +31,25 @@ const cardData = [
     description: '" 하나님께서는 항상 우리와 함께하시며, 우리의 마음에 평안을 주십니다. 아멘. "',
     issueQuestion: '" 혹시 마음에 고민거리가 있으신가요 ? 말씀해 주세요. 하나님께서 들으시고, 평안을 주시기 원하십니다." ',
     dreamQuestion: '" 그런 고민이 있으시군요. 최근에 주님께서 주신 꿈에 특별한 일이 없으셨나요 ? "'
-  }
+  },
+  {
+    id: 3,
+    name: '독설가',
+    role: 'VITRIOLIST',
+    imageSrc: VitriolistImg, // 독설가의 사진 경로
+    description: '" 내가 말하는 건, 그냥 충고도 아니고... 인생의 교훈이야. 듣고 싶다면, 조용히 있어. "',
+    issueQuestion: '" 요즘 들어, 세상 일이 왜 이렇게 엉망진창이냐? 나이 들었으면 좀 나아질 줄 알았는데, 갈수록 더 골치 아프네. 너, 뭐 고민 있으면 빨리 말해. 시간 없으니까 짧게 대답해라. "',
+    dreamQuestion: '" 살다 보면 그런 건 다 별 일도 아닌데, 그걸 고민이라고 말하냐? 그런 거 쯤은 다 지나가고 나면 아무것도 아닌 거지. 그래서, 최근에 무슨 꿈 꿨냐? 무슨 대단한 꿈이길래 바쁜 날 찾아온건지 들어나보자. "'
+  },
+  {
+    id: 4,
+    name: '래퍼',
+    role: 'RAPPER',
+    imageSrc: RapperImg, // 래퍼의 사진 경로
+    description: '" Yo, 네 얘기 들려줘, Let’s go! 끝난 후엔 사진 한 장, click 찍어줄게, 우리가 만든 순간을 영원히 남겨두자, 이건 바로 레전드. "',
+    issueQuestion: '" Yo, 뭐가 고민이야? 마이크 잡고 풀어봐, 네 이야기가 내 flow로 변하면, 고민 따윈 사라질 테니까, Boom! "',
+    dreamQuestion: '" 그래서 무슨 꿈을 꾼 거야? 내가 다 해석해줄게, 네 머릿속의 비트, 내가 풀어내면 완벽하게, 꿈 속에서 무엇을 본 건지, 말해봐, 내 랩처럼 빠르게 풀어줄게, Let’s go! "'
+  },  
 ];
 
 const StartPage = () => {  
