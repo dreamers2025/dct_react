@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
 
   // 🔹 현재 로그인한 사용자 정보 가져오기
   const fetchUser = async () => {
+    console.log("인증성공")
     const accessToken = localStorage.getItem("accessToken");
     if (!accessToken) {
       setUser(null);
@@ -48,7 +49,6 @@ export const AuthProvider = ({ children }) => {
     } else {
       setUser(null);
     }
-
     setLoading(false);
   };
 
@@ -70,11 +70,11 @@ export const AuthProvider = ({ children }) => {
       ...options.headers,
       Authorization: `bearer ${token}`
     }
+    console.log(test)
     const response = await fetch(url,{
       ...options,
       headers,
     });
-    return response;
   }
 
   // 🔹 마운트 시 로그인 상태 확인
