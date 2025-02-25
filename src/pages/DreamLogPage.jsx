@@ -8,7 +8,7 @@ import MonkImg from '../image/MONK.png'
 
 const interpreterImages = {
     MONK: MonkImg,
-    JESUS: ChristianImg,
+    CHRISTIAN: ChristianImg,
 };
 
 
@@ -30,7 +30,7 @@ const DreamLogPage = () => {
         console.log("accessToken :", accessToken);
 
         // API에서 데이터를 가져오기 위한 fetch 요청
-        fetch("http://localhost:8999/dreamlog/mydreams", {
+        fetch("http://localhost:8999/api/mydreams", {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${accessToken}`,
@@ -75,8 +75,7 @@ const DreamLogPage = () => {
 
                     {/* 본문: 좌측 캐릭터 이미지 + 우측 말풍선 해몽 */}
                     <div className={styles.content}>
-
-                        <img src={interpreterImages[dream.interpreter]} alt="해몽가" className={styles.characterImg} />
+                        <img src={interpreterImages[dream.interpreter]} alt="해몽가" className={styles.characterImg}/>
                         <div className={styles.bubbleContainer}>
                             <div className={styles.bubble}>
                                 {dream.content}
