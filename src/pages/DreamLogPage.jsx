@@ -5,10 +5,14 @@ import styles from "./DreamLogPage.module.scss";
 // 해몽가 이미지
 import ChristianImg from '../image/CHRISTIAN.png'
 import MonkImg from '../image/MONK.png'
+import VitriolistImg from '../image/VITRIOLIST.png'
+import RapperImg from '../image/RAPPER.png'
 
 const interpreterImages = {
     MONK: MonkImg,
     CHRISTIAN: ChristianImg,
+    VITRIOLIST: VitriolistImg,
+    RAPPER: RapperImg
 };
 
 
