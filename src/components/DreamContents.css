@@ -1,91 +1,86 @@
 /* card img style */
 .container {
-    width: 30%;
-    display: flex;
-    flex-direction: column;  
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    z-index: 1;
-  }
-  
-  .imgbox {
-    width: 100%;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-  }
-  
-  /* 버튼 style */
-  .btn-box {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .next-btn {
-    width: 20%;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    color: #fff;
-    background-color: #ff6600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-  }
-  
-  .next-btn:hover {
-    transform: scale(1);
-    box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
-  }
-  
-  .next-btn[disabled] {
-      cursor: not-allowed;
-      background: gray;
-  }
+  width: 30%;
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 1;
+}
 
-  .prev-btn {
-    width: 20%;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    color: #fff;
-    background-color: #ff6600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-  }
-  
-  .prev-btn:hover {
-    transform: scale(1);
-    box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
-  }
+.imgbox {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
 
-   /* 대화상자  */
-   input {
-    width: 100%;
-    max-width: 400px;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 25px;
-    border: 2px solid #4b3f72; /* 밤하늘을 연상시키는 어두운 보라색 */
-    background-color: #2d2d54; /* 밤하늘 색상 */
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
-    outline: none;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  input::placeholder {
-    color: #d0c9f2; /* 별빛처럼 부드러운 밝은 색상 */
-  }
-  
-  input:focus {
-    background-color: #4a3d70; /* 포커스 시 조금 더 밝은 보라색 */
-    border-color: #9e7bff; /* 포커스 시 별빛처럼 반짝이는 보라색 */
-  }
+/* 버튼 style */
+.btn-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.next-btn {
+  width: 20%;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+.next-btn:hover {
+  transform: scale(1);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
+}  
+
+.prev-btn {
+  width: 20%;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+.prev-btn:hover {
+  transform: scale(1);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
+}
+
+/* 대화상자  */
+input {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 2px solid #4b3f72; /* 밤하늘을 연상시키는 어두운 보라색 */
+  background-color: #2d2d54; /* 밤하늘 색상 */
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+  outline: none;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+input::placeholder {
+  color: #d0c9f2; /* 별빛처럼 부드러운 밝은 색상 */
+}
+
+input:focus {
+  background-color: #4a3d70; /* 포커스 시 조금 더 밝은 보라색 */
+  border-color: #9e7bff; /* 포커스 시 별빛처럼 반짝이는 보라색 */
+}
