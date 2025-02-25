@@ -1,6 +1,7 @@
 import { Form, NavLink } from "react-router-dom";
 import styles from "./SignUpForm.module.scss";
 import { useState, useRef, useEffect } from "react";
+import {debounce} from 'lodash';
 
 const LoginForm = () => {
 
