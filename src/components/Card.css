@@ -16,6 +16,7 @@ img {
 }
 
 p {      
+  width: 100%;
   padding-top: 10px;
   font-size: 16px;    
   color: #fff;    
@@ -37,4 +38,45 @@ p {
 /* isSelected 상태일때 빛나는 스타일 부여 */
 .textglow {
   animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* 공통 카드 스타일 */
+.card-grade {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  padding: 10px;
+  z-index: 100;  
+  border-radius: 5px;
+  color: #fff;
+  box-sizing: border-box; /* 패딩과 테두리를 포함한 크기 계산 */
+  display: flex;  
+  justify-content: center;
+  align-items: center; 
+}
+
+/* FREE 글씨 색 */
+.free-grade-card p {  
+  color: #D3D3D3;
+}
+
+/* PREMIUM 글씨 색 */
+.premium-grade-card p {  
+  color: #F8C20D;
+}
+
+/* 텍스트 스타일 */
+.card-grade p {
+  text-align: right;
+  padding-top: 0px;
+  margin: 0;
+  font-weight: bold; 
+  font-size: 14px; 
+}
+
+/* 호버 효과 */
+.card-grade:hover {
+  opacity: 0.9;
+  cursor: pointer;
 }
