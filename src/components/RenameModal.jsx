@@ -80,7 +80,8 @@ const RenameModalComponent = ({}, ref) => {
         />
         {!isAvailable && <p className={styles.error}>중복된 닉네임입니다.</p>}
         <div className={styles.btns}>
-          <button type="submit" disabled={!isAvailable || isLoading}>
+          <button type="submit" disabled={!isAvailable || isLoading}
+            className={isAvailable?'':styles.disabled}>
             {isLoading ? '변경 중...' : '변경'}
           </button>
           <button
