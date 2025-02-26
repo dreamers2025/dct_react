@@ -1,24 +1,31 @@
 import React, { useState , useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from "./DreamLogPage.module.scss";
+// import { useAuth } from "../components/auth/AuthProvider";
 
 // 해몽가 이미지
 import ChristianImg from '../image/CHRISTIAN.png'
 import MonkImg from '../image/MONK.png'
+import VitriolistImg from '../image/VITRIOLIST.png'
+import RapperImg from '../image/RAPPER.png'
 
 const interpreterImages = {
     MONK: MonkImg,
-    JESUS: ChristianImg,
+    CHRISTIAN: ChristianImg,
+    VITRIOLIST: VitriolistImg,
+    RAPPER: RapperImg
 };
 
 
 const DreamLogPage = () => {
 
+    // const {user}=useAuth(); // 로그인 유저 정보
     const [dreamLogs, setDreamLogs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate(); // useNavigate 훅을 사용하여 navigate 함수 선언
 
-    useEffect(() => {
+    useEffect(() => {       
+        
         // 로그인 상태를 확인
         const accessToken = localStorage.getItem('accessToken');
         if (!accessToken) {
@@ -30,7 +37,7 @@ const DreamLogPage = () => {
         console.log("accessToken :", accessToken);
 
         // API에서 데이터를 가져오기 위한 fetch 요청
-        fetch("http://localhost:8999/dreamlog/mydreams", {
+        fetch("http://localhost:8999/api/mydreams", {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${accessToken}`,
@@ -75,8 +82,7 @@ const DreamLogPage = () => {
 
                     {/* 본문: 좌측 캐릭터 이미지 + 우측 말풍선 해몽 */}
                     <div className={styles.content}>
-
-                        <img src={interpreterImages[dream.interpreter]} alt="해몽가" className={styles.characterImg} />
+                        <img src={interpreterImages[dream.interpreter]} alt="해몽가" className={styles.characterImg}/>
                         <div className={styles.bubbleContainer}>
                             <div className={styles.bubble}>
                                 {dream.content}

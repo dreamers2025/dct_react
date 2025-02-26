@@ -17,9 +17,8 @@ const ChoiceCharacter = ({ nextStep, prevStep, getCharacterData ,cardData, step 
   //isSelected == 카드가 리렌더링될때 selectedRole과 해당 카드의 role이 같으면 style을 부여한다
   return (
     <>
-      <div className='container'>
+      <div className='Choice-container'>  {/* 뒤에 렌더링 되는 컨테이너들과 스타일이 달라서 클래스 이름 수정 */}
         <div className='imgbox'>
-
           {cardData.map((card)=>(
             <Card
             key={card.id}

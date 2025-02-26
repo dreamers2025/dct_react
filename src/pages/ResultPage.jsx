@@ -33,8 +33,7 @@ const ResultPage = ({ nextStep , filteredCard , payload , getResults }) => {
           getResults(responseData);  // 부모 컴포넌트에서 결과를 처리
 
           //step === 5로 증가
-          nextStep();         
-          
+          nextStep();
         } catch (error) {
           // 오류 처리
           console.error('Error fetching data:', error);
