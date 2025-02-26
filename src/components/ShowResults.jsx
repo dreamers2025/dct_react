@@ -10,7 +10,7 @@ import { useAuth } from "./auth/AuthProvider";
 const ShowResults = ({ filteredCard, responseResults, stepToHome }) => {
 
   const {user}=useAuth(); // 로그인 유저 정보
-  console.log(user?.usergrade); // 안전하게 user.usergrade 접근
+  console.log(user); 
 
   // const accessToken = localStorage.getItem("accessToken");
   // console.log(accessToken);
@@ -28,7 +28,7 @@ const ShowResults = ({ filteredCard, responseResults, stepToHome }) => {
           <p className="content-title">해몽</p>
 
           <div className="blur-wrapper">  {/* user의 등급이 null이라면 자물쇠로 해몽 내용 블러 처리 */}
-            {user.usergrade === null ? (
+            {user === null ? (
               <>
                 <p className="interpretation-content">{responseResults.gemini.content}</p>
                 <div className="lock-icon">
