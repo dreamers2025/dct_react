@@ -57,6 +57,20 @@ const Card = ({ src, name, role, description, issueQuestion, dreamQuestion, getC
       {isSelected && (
         <div className="glow"></div>
       )}
+
+      {/* free 등급 카드 */}
+      {(role === 'VITRIOLIST' || role === 'RAPPER') && (
+        <div className="card-grade free-grade-card">
+          <p>FREE</p>
+        </div>
+      )}
+
+      {/* premium 등급 카드 */}
+      {(role === 'POSSESSEDBABY' || role === 'MANSOUR') && (
+        <div className="card-grade premium-grade-card">
+          <p>PREMIUM</p>
+        </div>
+      )}
     </div>
   );
 };
