@@ -44,7 +44,7 @@
     animation: glow 1.5s ease-in-out infinite alternate; /* glow효과 부여 */
   }
 
-  /* 블러처리리 기준 상자 */
+  /* 블러처리 기준 상자 */
   .blur-wrapper{
     position: relative;
   }

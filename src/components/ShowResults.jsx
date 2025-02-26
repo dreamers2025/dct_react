@@ -8,13 +8,12 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'; // 자물쇠 아이�
 import { useAuth } from "./auth/AuthProvider";
 
 const ShowResults = ({ filteredCard, responseResults, stepToHome }) => {
-  console.log(responseResults);
 
   const {user}=useAuth(); // 로그인 유저 정보
-  console.log(user);
+  console.log(user?.usergrade); // 안전하게 user.usergrade 접근
 
-  const accessToken = localStorage.getItem("accessToken");
-  console.log(accessToken);
+  // const accessToken = localStorage.getItem("accessToken");
+  // console.log(accessToken);
   
   
   // const[userGrade,setUserGrade] = useState('userGrade');  //유료 무료 구분에 따라 변경
@@ -29,7 +28,7 @@ const ShowResults = ({ filteredCard, responseResults, stepToHome }) => {
           <p className="content-title">해몽</p>
 
           <div className="blur-wrapper">  {/* user의 등급이 null이라면 자물쇠로 해몽 내용 블러 처리 */}
-            {user === null ? (
+            {user.usergrade === null ? (
               <>
                 <p className="interpretation-content">{responseResults.gemini.content}</p>
                 <div className="lock-icon">
@@ -37,7 +36,7 @@ const ShowResults = ({ filteredCard, responseResults, stepToHome }) => {
                 </div>
               </>
             ) : (
-              <p className="interpretation-content">{responseResults.gemini.content}</p>
+              <p>{responseResults.gemini.content}</p>
             )}
           </div>
             
