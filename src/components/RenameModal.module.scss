@@ -9,6 +9,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin: 20rem auto;
+  .ok{
+    font-size: 16px;
+    color: skyblue;
+  }
+  .error{
+    font-size: 16px;
+    color: orange;
+  }
   .newname {
     width: 100%;
     padding: 8px;
