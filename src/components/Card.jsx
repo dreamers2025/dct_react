@@ -1,11 +1,35 @@
 import React from "react";
 import "./Card.css";
+import { useAuth } from "./auth/AuthProvider";
+
+
 const Card = ({ src, name, role, description, issueQuestion, dreamQuestion, getCharacterData, onSelect, isSelected, step}) => {
   
-  //카드 박스 클릭 시 해당 카드의 role 값 저장
+  const{user} = useAuth();
+
+  //카드 박스 클릭 시 유저의 등급에 따라 카드선택 여부 결정 후 데이터 저장
   const bar = () => {
-    getCharacterData(role);
-    onSelect(role);
+    if (user === null) { //비회원이라면 스님 , 기독교인 카드만 선택 가능 (나머지 카드는 선택불가 alert으로 알리기)
+      if(role === 'MONK' || role === 'CHRISTIAN'){
+        console.log("비회원입니다.");   
+        getCharacterData(role); //카드 박스 클릭 시 해당 카드의 role 값 저장
+        onSelect(role);     
+      } else {
+        alert("비회원은 선택할수없는 카드입니다.");      
+      }      
+    }else if (user.usergrade === "free") { //무료회원은 독설가 , 래퍼도 선택 가능
+      if(role === 'MONK' || role === 'CHRISTIAN' || role === 'VITRIOLIST' || role ==='RAPPER'){
+        console.log("무료 회원입니다.");   
+        getCharacterData(role); //카드 박스 클릭 시 해당 카드의 role 값 저장
+        onSelect(role);     
+      } else {
+        alert("무료회원은 선택할수없는 카드입니다.");      
+      }
+    }else {
+      console.log("유료회원은 모두 선택 가능합니다.");      
+      getCharacterData(role); //카드 박스 클릭 시 해당 카드의 role 값 저장
+      onSelect(role);
+    }    
   };
 
   return (
