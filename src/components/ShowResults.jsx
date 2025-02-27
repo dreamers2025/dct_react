@@ -5,10 +5,17 @@ import SelectedCard from './SelectedCard'
 //폰트어썸 (자물쇠 아이콘 사용)
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons'; // 자물쇠 아이콘
+import { useAuth } from "./auth/AuthProvider";
 
-const ShowResults = ({ filteredCard, responseResults }) => {
-  console.log(responseResults);
+const ShowResults = ({ filteredCard, responseResults, stepToHome }) => {
 
+  const {user}=useAuth(); // 로그인 유저 정보
+  console.log(user); 
+
+  // const accessToken = localStorage.getItem("accessToken");
+  // console.log(accessToken);
+  
+  
   // const[userGrade,setUserGrade] = useState('userGrade');  //유료 무료 구분에 따라 변경
 
   return (
@@ -19,16 +26,24 @@ const ShowResults = ({ filteredCard, responseResults }) => {
         </div>
         <div className="result-content">
           <p className="content-title">해몽</p>
-          <div className="blur-wrapper">  {/* 무료회원 블러 처리 */}
-            <p className="interpretation-content">{responseResults.gemini.content}</p> {/* 해몽 */}
-            <div className="lock-icon"> {/* 자물쇠 */}
-              <FontAwesomeIcon icon={faLock} size="3x" />  
-            </div>
-          </div>          
+
+          <div className="blur-wrapper">  {/* user의 등급이 null이라면 자물쇠로 해몽 내용 블러 처리 */}
+            {user === null ? (
+              <>
+                <p className="interpretation-content">{responseResults.gemini.content}</p>
+                <div className="lock-icon">
+                  <FontAwesomeIcon icon={faLock} size="3x" />
+                </div>
+              </>
+            ) : (
+              <p>{responseResults.gemini.content}</p>
+            )}
+          </div>
+            
           <p className="content-title">요약</p>
           <p>{responseResults.gemini.summary}</p> {/* 요약 */}
         </div>
-        <button className="close-btn">닫기</button>
+        <button className="again-btn" onClick={stepToHome}>다시하기</button>
       </div>
     </div>
   );

@@ -19,6 +19,18 @@
     justify-content: center;
     line-height: 2;
     position: relative;
+    .editname{
+      all: unset;
+      font-size: 13px;
+      padding: 0 5px;
+      background: #3498db;
+      font-family: "Noto Sans KR", serif;
+      border-radius: 5px;
+      color: white;
+      margin-left: 10px;
+      font-weight: 500;
+      cursor: pointer;
+    }
   }
   .title{
     font-family: "Noto Sans KR", serif;

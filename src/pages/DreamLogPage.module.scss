@@ -82,6 +82,7 @@ html, body {
   max-width: 600px;
   position: relative;
   animation: fadeIn 0.5s ease-in-out;
+  white-space: pre-wrap;
 
   &:before {
     content: "";

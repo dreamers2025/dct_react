@@ -1,69 +1,86 @@
 import { Form } from "react-router-dom";
 import styles from "./SignUpForm.module.scss";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { debounce } from "lodash";
 
-const SignUpForm = ( ) => {
-
+const SignUpForm = () => {
   const emailRef = useRef(null);
   const nameRef = useRef(null);
   const passwordRef = useRef(null);
   const passwordCheckRef = useRef(null);
 
-  const [password, setPassword] = useState('');
-  const [passwordCheck, setPasswordCheck] = useState('');
+  const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isPasswordMatch, setIsPasswordMatch] = useState(true);
   const [isSafePassword, setIsSafePassword] = useState(true);
   const [isValidForm, setIsValidForm] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     emailRef.current.focus();
-  },[]);
+  }, []);
 
-  const handleEmail = e =>{
-    if(e.target.value.length===0){
+  const debouncedHandleEmail = useCallback(
+    debounce((value) => {
+      setIsValidEmail(value.includes("@"));
+    }, 700),
+    []
+  );
+
+  const handleEmail = (e) => {
+    if (e.target.value.length === 0) {
       setIsValidEmail(true);
       return;
     }
-    setIsValidEmail(e.target.value.includes('@'))
-  }
-  const isPasswordSafe = pw =>{
-    if(pw.length<7){
-      setIsSafePassword(false);
-      return;
-    }
-    setIsSafePassword(true);
-  }
-  const checkPasswordMatch = (password,passwordCheck)=>{
-    return password===passwordCheck;
-  };
-  const handlePassword = () => {
-    setPassword(passwordRef.current.value);
-    setIsPasswordMatch(checkPasswordMatch(passwordRef.current.value,passwordCheck));
-    isPasswordSafe(password);
+    debouncedHandleEmail(e.target.value);
   };
 
-  const handlePasswordCheck = e => {
-    setPasswordCheck(passwordCheckRef.current.value);
-    setIsPasswordMatch(checkPasswordMatch(password,passwordCheckRef.current.value));
+  const isPasswordSafe = useCallback(
+    debounce((pw) => {
+      setIsSafePassword(pw.length >= 8);
+    }, 700),
+    []
+  );
+
+  const checkPasswordMatch = (password, passwordCheck) => {
+    return password === passwordCheck;
   };
+
+  const debouncedHandlePassword = useCallback(
+    debounce(() => {
+      setPassword(passwordRef.current.value);
+      setIsPasswordMatch(checkPasswordMatch(passwordRef.current.value, passwordCheck));
+      isPasswordSafe(passwordRef.current.value);
+    }, 700),
+    [passwordCheck]
+  );
+
+  const debouncedHandlePasswordCheck = useCallback(
+    debounce(() => {
+      setPasswordCheck(passwordCheckRef.current.value);
+      setIsPasswordMatch(checkPasswordMatch(password, passwordCheckRef.current.value));
+    }, 700),
+    [password]
+  );
 
   const handleSubmit = () => {
-    if(isValidEmail&&passwordRef.current.value===passwordCheckRef.current.value&&isSafePassword&&emailRef.current.value.length>0&&password.length>7&&nameRef.current.value.length>0){
+    if (
+      isValidEmail &&
+      passwordRef.current.value === passwordCheckRef.current.value &&
+      isSafePassword &&
+      emailRef.current.value.length > 0 &&
+      password.length >= 8 &&
+      nameRef.current.value.length > 0
+    ) {
       setIsValidForm(true);
-    }else{
+    } else {
       setIsValidForm(false);
     }
-  }
+  };
 
   return (
-    <div >
-      <Form
-        className={styles.form}
-        method="POST"
-        noValidate
-        onChange={handleSubmit}
-      >
+    <div>
+      <Form className={styles.form} method="POST" noValidate onChange={handleSubmit}>
         <p>
           <label htmlFor="email">이메일</label>
           <input id="email" ref={emailRef} onChange={handleEmail} type="email" name="email" required />
@@ -75,22 +92,18 @@ const SignUpForm = ( ) => {
         </p>
         <p>
           <label htmlFor="password">비밀번호</label>
-          <input id="password"
-          ref={passwordRef}
-          onChange={handlePassword}
-          type="password" name="password" required />
+          <input id="password" ref={passwordRef} onChange={debouncedHandlePassword} type="password" name="password" required />
         </p>
-        {!isSafePassword && <p className={styles.misMatch}>비밀번호는 8자리 이상이어야합니다.</p>}
+        {!isSafePassword && <p className={styles.misMatch}>비밀번호는 8자리 이상이어야 합니다.</p>}
         <p>
           <label htmlFor="passwordCheck">비밀번호 확인</label>
-          <input id="passwordCheck"
-          ref={passwordCheckRef}
-          onChange={handlePasswordCheck}
-          type="password" name="passwordCheck" required />
+          <input id="passwordCheck" ref={passwordCheckRef} onChange={debouncedHandlePasswordCheck} type="password" name="passwordCheck" required />
         </p>
         {!isPasswordMatch && <p className={styles.misMatch}>비밀번호가 일치하지 않습니다</p>}
         <div className={styles.actions}>
-          <button type="submit" disabled={!isValidForm} className={!isValidForm? styles.disabled:'' }>가입하기</button>
+          <button type="submit" disabled={!isValidForm} className={!isValidForm ? styles.disabled : ""}>
+            가입하기
+          </button>
         </div>
       </Form>
     </div>

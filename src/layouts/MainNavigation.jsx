@@ -1,8 +1,9 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import styles from './MainNavigation.module.scss';
 import { useAuth } from '../components/auth/AuthProvider';
 
 const MainNavigation = () => {
+    const navigation = useNavigate();
     const {user, logout} = useAuth();
     // NavLink에 className에 바인딩하는 콜백함수
     // 현재 위치한 메뉴 정보를 알려줌
@@ -10,6 +11,9 @@ const MainNavigation = () => {
         // 클래스 이름을 반환
         return isActive ? styles.active : '';
     };
+    const toHome = ()=>{
+        navigate('/');
+    }
 
     return (
         <nav className={`${styles.header} main-nav`}>
@@ -17,7 +21,7 @@ const MainNavigation = () => {
             <div className={styles.left}>
                 <ul className={styles.list}>
                     <li>
-                        <NavLink className={activeFn} to='/' end>
+                        <NavLink className={activeFn} onClick={toHome} end>
                             홈
                         </NavLink>
                     </li>

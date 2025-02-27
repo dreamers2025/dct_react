@@ -35,7 +35,6 @@
     font-size: 1em;
     margin-bottom: 20px;
     white-space: pre-wrap;
-
   }
 
   .content-title {
@@ -44,7 +43,7 @@
     animation: glow 1.5s ease-in-out infinite alternate; /* glow효과 부여 */
   }
 
-  /* 블러처리리 기준 상자 */
+  /* 블러처리 기준 상자 */
   .blur-wrapper{
     position: relative;
   }
@@ -65,8 +64,8 @@
     z-index: 1; /* 블러 콘텐츠 위에 올리기 */
   }   
   
-  /* 닫기 버튼 스타일 */
-  .close-btn {
+  /* 다시하기 버튼 스타일 */
+  .again-btn {
     background-color: #4b3f72; /* 어두운 보라색 */
     color: #fff;
     border: none;
@@ -78,8 +77,8 @@
     width: 30%;
   }
   
-  /* 닫기 버튼 hover 효과 */
-  .close-btn:hover {
+  /* 다시하기 버튼 hover 효과 */
+  .again-btn:hover {
     background-color: #3e3565; /* 좀 더 어두운 보라색 */
   }
 

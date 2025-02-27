@@ -1,26 +1,38 @@
-import {Form, NavLink, useSearchParams, useNavigate} from "react-router-dom";
+import {Form, NavLink } from "react-router-dom";
 import styles from "./LoginForm.module.scss";
-import {useState, useEffect} from "react";
-import {useAuth} from "./AuthProvider";
+import { useState } from "react";
+import { useAuth } from "./AuthProvider";
+import { ClipLoader,RingLoader,MoonLoader,SyncLoader,PuffLoader } from "react-spinners";
 
 const LoginForm = () => {
     const {login } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [searchParams] = useSearchParams();
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log("username : " + username + " password : " + password);
+            setLoading(true);
+            console.log("username : "+username+" password : "+password);
             await login(username, password);
         } catch (err) {
             alert("로그인 실패");
+        }finally{
+            setLoading(false);
         }
     };
 
+    if (loading) return <div className='loading'>
+        <div className={styles.loading_message}>
+            <p>로그인 중 ...</p>
+        </div>
+        <ClipLoader color="#36d7b7" size={80} />
+    </div>;
+
+
     return (
-        <div>
+        <div >
             <Form
                 className={styles.form}
                 noValidate
@@ -29,13 +41,11 @@ const LoginForm = () => {
             >
                 <p>
                     <label htmlFor="username">이메일 혹은 닉네임</label>
-                    <input id="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)}
-                           name="username" placeholder="이메일 혹은 닉네임" required/>
+                    <input id="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="username"placeholder="이메일 혹은 닉네임" required />
                 </p>
                 <p>
                     <label htmlFor="password">비밀번호</label>
-                    <input id="password" value={password} onChange={(e) => setPassword(e.target.value)}
-                           placeholder="비밀번호" type="password" name="password" required/>
+                    <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="비밀번호" type="password" name="password" required />
                 </p>
                 <div className={styles.actions}>
                     <button type="submit">로그인</button>
