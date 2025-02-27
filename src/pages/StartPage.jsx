@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import './Startpage.css';
 import StartComponent from "../components/StartComponent";
 import ChoiceCharacter from "../components/ChoiceCharacter";
@@ -83,8 +83,13 @@ const StartPage = () => {
   const [filteredCard,setFilteredCard] = useState(''); //사용자가 선택한 카드객체
   const [responseResults,setResponseResults] = useState(null);//최종 결과객체  
   //stept값에 따라 질문지 변경
-  const [step,setStep] = useState(0);  
-  
+  const [step,setStep] = useState(0);
+
+  useEffect(() => {
+    console.log("홈페이지 useEffect");
+    sessionStorage.removeItem("previousPage");
+  }, []);
+
   //부모 컴포넌트에서 상태관리 , 자식 컴포넌트에 함수를 내려주기
   const nextStep = () => {
     setStep(step + 1);

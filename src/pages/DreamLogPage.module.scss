@@ -5,19 +5,24 @@ $bg-color: #1a1a2e;
 $text-color: #e0e0e0;
 $border-color: rgba(255, 204, 0, 0.4);
 
+html, body {
+  height: 100%;
+  overflow: auto; /* 웹 전체에 스크롤 */
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  width: 60%;
   background: $bg-color;
-  min-height: 100vh;
   font-family: "Orbitron", sans-serif;
+  max-height: 70vh;
+  overflow: auto;
 }
 
 .logCard {
-  width: 80%;
-  max-width: 800px;
+  width: 60%;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 16px;
@@ -52,6 +57,7 @@ $border-color: rgba(255, 204, 0, 0.4);
 .content {
   display: flex;
   align-items: flex-start;
+  white-space: pre-wrap;
 }
 
 .characterImg {
@@ -73,7 +79,7 @@ $border-color: rgba(255, 204, 0, 0.4);
   padding: 10px 14px;
   border-radius: 10px;
   margin-bottom: 8px;
-  max-width: 400px;
+  max-width: 600px;
   position: relative;
   animation: fadeIn 0.5s ease-in-out;
   white-space: pre-wrap;

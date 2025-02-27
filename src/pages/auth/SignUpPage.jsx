@@ -1,12 +1,28 @@
-import React from "react";
-import { redirect } from "react-router-dom";
-import SignUpForm from "../../components/auth/SignUpForm";
+import { React, useEffect }from "react";
+import { useNavigate, useActionData } from "react-router-dom";
+import SignUpForm from "../../components/auth/SignUpForm.jsx";
+import { useAuth } from "../../components/auth/AuthProvider.jsx";
 
-const LoginPage = () => {
+const SignUpPage = () => {
+  const { login } = useAuth(); // useAuth에서 login 가져옴
+  const actionData = useActionData(); // action 함수의 결과 받아오기
+
+  useEffect(() => {
+    if (actionData?.success) {
+      const { username, password } = actionData;
+
+      // 회원가입 성공 후 자동 로그인
+      login(username, password);
+    } else if (actionData?.error) {
+      alert(`회원가입 실패: ${actionData.error}`);
+    }
+  }, [actionData, login]);
+
+
   return <SignUpForm />;
 };
 
-export default LoginPage;
+export default SignUpPage;
 
 export const action = async ({ request, params }) => {
   try {
@@ -27,10 +43,14 @@ export const action = async ({ request, params }) => {
       const errorMessage = await response.text();
       throw new Error(errorMessage || "회원가입 요청 실패");
     }
-    alert('회원가입이 완료되었습니다!')
-    return redirect('/login');
+
+    return {
+      success: true, username: payload.username, password: payload.password
+    };
   } catch (error) {
-    alert(`회원가입 실패 : 서버준비중`);
-    return { success: false, error: `signup api error` };
+    alert(`회원가입 실패 : ${error.message || '서버준비중'}`);
+    return {
+      success: false, error: error.message
+    };
   }
 };

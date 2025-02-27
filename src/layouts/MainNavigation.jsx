@@ -3,7 +3,7 @@ import styles from './MainNavigation.module.scss';
 import { useAuth } from '../components/auth/AuthProvider';
 
 const MainNavigation = () => {
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     const {user, logout} = useAuth();
     // NavLink에 className에 바인딩하는 콜백함수
     // 현재 위치한 메뉴 정보를 알려줌
