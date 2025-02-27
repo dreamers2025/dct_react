@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from "./DreamLogPage.module.scss";
-// import { useAuth } from "../components/auth/AuthProvider";
+import { useAuth } from "../components/auth/AuthProvider";
 
 // 해몽가 이미지
 import ChristianImg from '../image/CHRISTIAN.png'
@@ -13,52 +13,35 @@ const interpreterImages = {
     MONK: MonkImg,
     CHRISTIAN: ChristianImg,
     VITRIOLIST: VitriolistImg,
-    RAPPER: RapperImg
+    RAPPER: RapperImg,
 };
-
 
 const DreamLogPage = () => {
 
-    // const {user}=useAuth(); // 로그인 유저 정보
+    const { user, fetchWithAuth, redirectToPage } = useAuth(); // 로그인 유저 정보
     const [dreamLogs, setDreamLogs] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const navigate = useNavigate(); // useNavigate 훅을 사용하여 navigate 함수 선언
 
-    useEffect(() => {       
-        
-        // 로그인 상태를 확인
-        const accessToken = localStorage.getItem('accessToken');
-        if (!accessToken) {
-            // 로그인되어 있지 않으면 로그인 페이지로 리디렉션
-            navigate('/login');
-            return;
+    useEffect(() => {
+
+        if (!user) {
+            console.log("유저 정보 없어서 로그인 페이지로 보냅니다");
+            // 로그인하지 않았다면 현재 페이지를 previouPage에 저장하고 로그인 페이지로 이동
+            redirectToPage('/dreamlog/mydreams');
         }
 
-        console.log("accessToken :", accessToken);
-
         // API에서 데이터를 가져오기 위한 fetch 요청
-        fetch("http://localhost:8999/api/mydreams", {
+        fetchWithAuth("http://localhost:8999/api/mydreams", {
             method: "GET",
-            headers: {
-                "Authorization": `Bearer ${accessToken}`,
-            },
         })
             .then((response) => response.json())
             .then((data) => {
                 setDreamLogs(data); // 서버에서 가져온 데이터를 상태에 저장
-                setIsLoading(false); // 로딩 완료
             })
             .catch((error) => {
                 console.error("Error fetching data: ", error);
-                setIsLoading(false); // 오류 발생 시에도 로딩을 종료
             });
-    }, [navigate]); // navigate를 의존성 배열에 추가하여, navigate 함수가 바뀔 때마다 다시 실행
+    }, []);
 
-    if (isLoading) {
-        return <div>Loading...</div>; // 로딩 중일 때 보여줄 컴포넌트
-    }
-
-    console.log("dreamLogs", dreamLogs);
 
     if (dreamLogs.length === 0) {
         return (
