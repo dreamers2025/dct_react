@@ -6,24 +6,22 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [previousPage, setPreviousPage] = useState('');
   const navigate = useNavigate();
 
-  // 로그인 후 이전 페이지 이동
+  // 이전 페이지로 이동
   const navigateToPreviousPage = () => {
-    if (previousPage) {
-      navigate(previousPage); // previousPage가 있으면 그 페이지로 이동
+    const savedPage = sessionStorage.getItem('previousPage');
+    if (savedPage) {
+      navigate(savedPage); // previousPage가 있으면 그 페이지로 이동
+
+      // 이동 후 sessionStorage에서 삭제 (약간 지연 후 삭제)
+      setTimeout(() => {
+        sessionStorage.removeItem('previousPage');
+      }, 500);
     } else {
       navigate('/'); // 없으면 홈페이지로 이동
     }
   };
-
-  useEffect(() => {
-    const savedPage = sessionStorage.getItem('previousPage');
-    if (savedPage) {
-      setPreviousPage(savedPage);
-    }
-  }, []);
 
   // 🔹 토큰 저장 및 로그인 함수
   const login = async (username, password) => {
@@ -70,12 +68,6 @@ export const AuthProvider = ({ children }) => {
     }
     setLoading(false);
 
-    const previousPage = sessionStorage.getItem("previousPage");
-    navigate(previousPage || "/"); // 이전 페이지 또는 홈으로 이동
-    setTimeout(() => {
-      sessionStorage.removeItem("previousPage"); // 약간 지연 후 삭제
-    }, 500);
-
     return response;
   };
 
@@ -90,22 +82,22 @@ export const AuthProvider = ({ children }) => {
 
   const fetchWithAuth = async (url, options = {}) => {
     const token = localStorage.getItem("accessToken");
-  
+
     if (!token) {
       return fetch(url, { ...options });
     }
-  
+
     const headers = {
       ...options.headers,
       Authorization: `Bearer ${token}`,
     };
-  
+
     try {
       const response = await fetch(url, {
         ...options,
         headers,
       });
-  
+
       return response;
     } catch (error) {
       console.error("fetchWithAuth 요청 실패:", error);
@@ -120,15 +112,17 @@ export const AuthProvider = ({ children }) => {
     }
   }, [user]);
 
-  // 페이지 리다이렉션 함수 (로그인되지 않았을 경우 로그인 페이지로 이동)
-  const redirectToPage = (page) => {
-    setPreviousPage(page);
+  /**
+   * 로그인 페이지로 리다이렉트하면서 이전 페이지 정보를 저장합니다.
+   * @param {string} page - 사용자가 이전에 있던 페이지의 URL.
+   */
+  const redirectToLogin = (page) => {
     sessionStorage.setItem('previousPage', page); // sessionStorage에 이전 페이지 저장
     navigate('/login'); // 로그인 페이지로 이동
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading, fetchUser,fetchWithAuth, redirectToPage}}>
+    <AuthContext.Provider value={{ user, login, logout, loading, fetchUser,fetchWithAuth, redirectToLogin}}>
       {children}
     </AuthContext.Provider>
   );

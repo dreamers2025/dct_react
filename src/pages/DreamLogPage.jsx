@@ -22,15 +22,13 @@ const interpreterImages = {
 
 const DreamLogPage = () => {
 
-    const { user, fetchWithAuth, redirectToPage } = useAuth(); // 로그인 유저 정보
+    const { user, fetchWithAuth, redirectToLogin } = useAuth(); // 로그인 유저 정보
     const [dreamLogs, setDreamLogs] = useState([]);
 
     useEffect(() => {
-
+        // 로그인하지 않았다면 현재 페이지를 previouPage에 저장하고 로그인 페이지로 이동
         if (!user) {
-            console.log("유저 정보 없어서 로그인 페이지로 보냅니다");
-            // 로그인하지 않았다면 현재 페이지를 previouPage에 저장하고 로그인 페이지로 이동
-            redirectToPage('/dreamlog/mydreams');
+            redirectToLogin('/dreamlog/mydreams');
         }
 
         // API에서 데이터를 가져오기 위한 fetch 요청
