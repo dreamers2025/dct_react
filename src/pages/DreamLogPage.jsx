@@ -43,7 +43,19 @@ const DreamLogPage = () => {
                 console.error("Error fetching data: ", error);
             });
     }, []);
-
+    const handleDelete = async (id) => {
+        const response = await fetchWithAuth(`http://localhost:8999/api/mydreams/delete/${id}`,{
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+              }
+        });
+        if(response.ok){
+            alert('삭제되었습니다!');
+            setDreamLogs(dreamLogs.filter(dream=>dream.dreamId!==id));
+        } 
+        else{alert('삭제실패!')}
+    }
 
     if (dreamLogs.length === 0) {
         return (
@@ -72,6 +84,7 @@ const DreamLogPage = () => {
                             <div className={styles.bubble}>
                                 {dream.content}
                             </div>
+                            <button className={styles.delete} onClick={()=>handleDelete(dream.dreamId)}>삭제하기</button>
                         </div>
                     </div>
                 </div>
