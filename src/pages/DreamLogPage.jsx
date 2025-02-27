@@ -8,12 +8,16 @@ import ChristianImg from '../image/CHRISTIAN.png'
 import MonkImg from '../image/MONK.png'
 import VitriolistImg from '../image/VITRIOLIST.png'
 import RapperImg from '../image/RAPPER.png'
+import MansourImg from '../image/MANSOUR.png'
+import BabyImg from '../image/BABY.png'
 
 const interpreterImages = {
     MONK: MonkImg,
     CHRISTIAN: ChristianImg,
     VITRIOLIST: VitriolistImg,
     RAPPER: RapperImg,
+    MANSOUR: MansourImg,
+    BABY: BabyImg
 };
 
 const DreamLogPage = () => {

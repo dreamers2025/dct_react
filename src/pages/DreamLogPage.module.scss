@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
 $primary-color: #ffcc00;
 $bg-color: #1a1a2e;
@@ -14,15 +14,31 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
+  width: 100%;
   background: $bg-color;
-  font-family: "Orbitron", sans-serif;
-  max-height: 70vh;
+  max-height: 100vh;
+  padding-top: 10%;
   overflow: auto;
+  font-family: "Lobster", cursive;
+
+  &::-webkit-scrollbar {
+    width: 18px; /* 스크롤바 너비 */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary-color; /* 스크롤바 색상 */
+    border-radius: 10px; /* 둥근 모서리 */
+    border: 3px solid $bg-color; /* 스크롤바 외곽선 */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #333; /* 스크롤바 트랙 배경 */
+    border-radius: 10px; /* 둥근 모서리 */
+  }
 }
 
 .logCard {
-  width: 60%;
+  width: 52%;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 16px;
@@ -43,7 +59,7 @@ html, body {
   padding-bottom: 10px;
   margin-bottom: 10px;
   color: $primary-color;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .date {
@@ -52,17 +68,19 @@ html, body {
 
 .summary {
   opacity: 0.8;
+  font-weight: bold;
 }
 
 .content {
   display: flex;
   align-items: flex-start;
   white-space: pre-wrap;
+  font-size: 1.1rem;
 }
 
 .characterImg {
-  width: 150px;
-  height: 120px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   border: 2px solid $primary-color;
   margin-right: 15px;
@@ -76,10 +94,10 @@ html, body {
 .bubble {
   background: rgba(255, 255, 255, 0.2);
   color: $text-color;
-  padding: 10px 14px;
+  padding: 16px 16px;
   border-radius: 10px;
   margin-bottom: 8px;
-  max-width: 600px;
+  max-width: 760px;
   position: relative;
   animation: fadeIn 0.5s ease-in-out;
   white-space: pre-wrap;
@@ -130,7 +148,6 @@ html, body {
   animation: fadeIn 0.6s ease-in-out;
   max-width: 500px;
   margin-top: 20px;
-  font-family: "Orbitron", sans-serif;
 }
 
 @keyframes fadeIn {
