@@ -70,7 +70,12 @@ export const AuthProvider = ({ children }) => {
     }
     setLoading(false);
 
-    console.log("로그인 과정에서 마지막 부분 previousPage", previousPage);
+    const previousPage = sessionStorage.getItem("previousPage");
+    navigate(previousPage || "/"); // 이전 페이지 또는 홈으로 이동
+    setTimeout(() => {
+      sessionStorage.removeItem("previousPage"); // 약간 지연 후 삭제
+    }, 500);
+
     return response;
   };
 
@@ -78,6 +83,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("accessToken");
     setUser(null);
+    sessionStorage.removeItem("previousPage");
     alert('로그아웃 되었습니다!');
     navigate('/');
   };

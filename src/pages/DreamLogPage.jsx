@@ -40,7 +40,7 @@ const DreamLogPage = () => {
             .catch((error) => {
                 console.error("Error fetching data: ", error);
             });
-    }, [user, redirectToPage]);
+    }, []);
 
 
     if (dreamLogs.length === 0) {

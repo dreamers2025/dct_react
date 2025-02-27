@@ -1,31 +1,22 @@
-import React from "react";
+import { React, useEffect }from "react";
 import { useNavigate, useActionData } from "react-router-dom";
 import SignUpForm from "../../components/auth/SignUpForm.jsx";
 import { useAuth } from "../../components/auth/AuthProvider.jsx";
 
 const SignUpPage = () => {
   const { login } = useAuth(); // useAuth에서 login 가져옴
-  const navigate = useNavigate();
   const actionData = useActionData(); // action 함수의 결과 받아오기
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (actionData?.success) {
       const { username, password } = actionData;
 
       // 회원가입 성공 후 자동 로그인
-      login(username, password)
-          .then(() => {
-            const previousPage = sessionStorage.getItem("previousPage");
-            navigate(previousPage || "/"); // 이전 페이지 또는 홈으로 이동
-          })
-          .catch((err) => {
-            console.error("자동 로그인 실패:", err);
-            alert("자동 로그인 실패");
-          });
+      login(username, password);
     } else if (actionData?.error) {
       alert(`회원가입 실패: ${actionData.error}`);
     }
-  }, [actionData, login, navigate]);
+  }, [actionData, login]);
 
 
   return <SignUpForm />;
