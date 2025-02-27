@@ -1,8 +1,8 @@
-import { Form, NavLink } from "react-router-dom";
+import { Form } from "react-router-dom";
 import styles from "./SignUpForm.module.scss";
 import { useState, useRef, useEffect } from "react";
 
-const LoginForm = () => {
+const SignUpForm = ( ) => {
 
   const emailRef = useRef(null);
   const nameRef = useRef(null);
@@ -97,4 +97,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignUpForm;

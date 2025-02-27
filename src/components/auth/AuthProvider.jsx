@@ -1,15 +1,32 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { useNavigate} from "react-router-dom";
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [previousPage, setPreviousPage] = useState('');
+  const navigate = useNavigate();
+
+  // 로그인 후 이전 페이지 이동
+  const navigateToPreviousPage = () => {
+    if (previousPage) {
+      navigate(previousPage); // previousPage가 있으면 그 페이지로 이동
+    } else {
+      navigate('/'); // 없으면 홈페이지로 이동
+    }
+  };
+
+  useEffect(() => {
+    const savedPage = sessionStorage.getItem('previousPage');
+    if (savedPage) {
+      setPreviousPage(savedPage);
+    }
+  }, []);
 
   // 🔹 토큰 저장 및 로그인 함수
   const login = async (username, password) => {
-    console.log("로그인 진입")
-    console.log(JSON.stringify({ username, password }))
     const response = await fetch("http://localhost:8999/api/auth/login", {
       method: "POST",
       headers: {
@@ -25,6 +42,8 @@ export const AuthProvider = ({ children }) => {
     const data = await response.json();
     localStorage.setItem("accessToken", data.accessToken); // JWT 저장
     await fetchUser(); // 로그인 후 유저 정보 가져오기
+
+    navigateToPreviousPage(); // 로그인 후 이전 페이지로 이동
   };
 
   // 🔹 현재 로그인한 사용자 정보 가져오기
@@ -50,6 +69,8 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
     }
     setLoading(false);
+
+    console.log("로그인 과정에서 마지막 부분 previousPage", previousPage);
     return response;
   };
 
@@ -57,7 +78,8 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("accessToken");
     setUser(null);
-    alert('로그아웃 되었습니다!')
+    alert('로그아웃 되었습니다!');
+    navigate('/');
   };
 
   const fetchWithAuth = async (url, options = {}) => {
@@ -92,8 +114,15 @@ export const AuthProvider = ({ children }) => {
     }
   }, [user]);
 
+  // 페이지 리다이렉션 함수 (로그인되지 않았을 경우 로그인 페이지로 이동)
+  const redirectToPage = (page) => {
+    setPreviousPage(page);
+    sessionStorage.setItem('previousPage', page); // sessionStorage에 이전 페이지 저장
+    navigate('/login'); // 로그인 페이지로 이동
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading, fetchUser,fetchWithAuth }}>
+    <AuthContext.Provider value={{ user, login, logout, loading, fetchUser,fetchWithAuth, redirectToPage}}>
       {children}
     </AuthContext.Provider>
   );
