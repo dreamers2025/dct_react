@@ -21,7 +21,7 @@ const MainNavigation = () => {
             <div className={styles.left}>
                 <ul className={styles.list}>
                     <li>
-                        <NavLink className={activeFn} onClick={toHome} end>
+                        <NavLink className={activeFn} onClick={toHome} to='/' end>
                             홈
                         </NavLink>
                     </li>
