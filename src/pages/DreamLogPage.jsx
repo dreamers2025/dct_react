@@ -4,20 +4,20 @@ import styles from "./DreamLogPage.module.scss";
 import { useAuth } from "../components/auth/AuthProvider";
 
 // 해몽가 이미지
-import ChristianImg from '../image/CHRISTIAN.png'
-import MonkImg from '../image/MONK.png'
-import VitriolistImg from '../image/VITRIOLIST.png'
-import RapperImg from '../image/RAPPER.png'
-import MansourImg from '../image/MANSOUR.png'
-import BabyImg from '../image/BABY.png'
+import ChristianImg from '../image/christian.png'
+import MonkImg from '../image/monk.png'
+import VitriolistImg from '../image/vitriolist.png'
+import RapperImg from '../image/rapper.png'
+import MansourImg from '../image/mansour.png'
+import PossesedBabyImg from '../image/possessed_baby.png'
 
 const interpreterImages = {
     MONK: MonkImg,
     CHRISTIAN: ChristianImg,
     VITRIOLIST: VitriolistImg,
     RAPPER: RapperImg,
+    POSSESSEDBABY: PossesedBabyImg,
     MANSOUR: MansourImg,
-    BABY: BabyImg
 };
 
 const DreamLogPage = () => {
