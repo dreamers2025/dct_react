@@ -8,12 +8,12 @@ import ResultPage from "./ResultPage";
 import ShowResults from"../components/ShowResults";
 
 //카드 데이터 StartPage에서 관리
-import ChristianImg from '../image/CHRISTIAN.png';
-import MonkImg from '../image/MONK.png';
-import VitriolistImg from '../image/VITRIOLIST.png';
-import RapperImg from '../image/RAPPER.png';
-import BabyImg from '../image/BABY.png';
-import MansourImg from '../image/MANSOUR.png';
+import ChristianImg from '../image/christian.png';
+import MonkImg from '../image/monk.png';
+import VitriolistImg from '../image/vitriolist.png';
+import RapperImg from '../image/rapper.png';
+import BabyImg from '../image/possessed_baby.png';
+import MansourImg from '../image/mansour.png';
 
 //카드 데이터
 const cardData = [
