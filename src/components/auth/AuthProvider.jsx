@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
   // 🔹 토큰 저장 및 로그인 함수
   const login = async (username, password) => {
-    const response = await fetch("http://localhost:8999/api/auth/login", {
+    const response = await fetch("http://172.30.1.40:8999/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
       return;
     }
 
-    const response = await fetch("http://localhost:8999/api/auth/me", {
+    const response = await fetch("http://172.30.1.40:8999/api/auth/me", {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -97,7 +97,7 @@ export const AuthProvider = ({ children }) => {
         ...options,
         headers,
       });
-
+      console.log(JSON.stringify(response))
       return response;
     } catch (error) {
       console.error("fetchWithAuth 요청 실패:", error);

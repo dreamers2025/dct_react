@@ -32,7 +32,7 @@ export const action = async ({ request, params }) => {
       username: formdata.get("username"),
       password: formdata.get("password"),
     };
-    const response = await fetch("http://localhost:8999/api/auth/signup", {
+    const response = await fetch("http://172.30.1.40:8999/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

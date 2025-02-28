@@ -32,7 +32,7 @@ const DreamLogPage = () => {
         }
 
         // API에서 데이터를 가져오기 위한 fetch 요청
-        fetchWithAuth("http://localhost:8999/api/mydreams", {
+        fetchWithAuth("http://172.30.1.40:8999/api/mydreams", {
             method: "GET",
         })
             .then((response) => response.json())
@@ -44,7 +44,7 @@ const DreamLogPage = () => {
             });
     }, []);
     const handleDelete = async (id) => {
-        const response = await fetchWithAuth(`http://localhost:8999/api/mydreams/delete/${id}`,{
+        const response = await fetchWithAuth(`http://172.30.1.40:8999/api/mydreams/delete/${id}`,{
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

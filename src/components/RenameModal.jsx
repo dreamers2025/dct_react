@@ -53,7 +53,7 @@ const RenameModalComponent = ({}, ref) => {
 
       try {
         const response = await fetchWithAuth(
-          `http://localhost:8999/api/auth/check-duplicate?type=username&value=${inputValue}`
+          `http://172.30.1.40:8999/api/auth/check-duplicate?type=username&value=${inputValue}`
         );
         const result = await response.json();
         console.log(result);

@@ -14,7 +14,7 @@ const ResultPage = ({ nextStep , filteredCard , payload , getResults }) => {
           setLoading(true);
           // fetch 요청 (await을 사용하여 비동기 처리)
           const response = await fetchWithAuth(
-            `http://localhost:8999/api/gemini/dream-interpretation?interpreterType=${payload.interpreterType}&experience=${payload.experience}&dreamContent=${payload.dreamContent}`
+            `http://172.30.1.40:8999/api/gemini/dream-interpretation?interpreterType=${payload.interpreterType}&experience=${payload.experience}&dreamContent=${payload.dreamContent}`
           );
           console.log(response)
           // 응답이 정상인지 확인

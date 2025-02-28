@@ -13,7 +13,7 @@ const MyPage = () => {
       return;
     }
     const upgrade = async () =>{
-      const response = await fetchWithAuth("http://localhost:8999/api/auth/upgrade",{
+      const response = await fetchWithAuth("http://172.30.1.40:8999/api/auth/upgrade",{
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
