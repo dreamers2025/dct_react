@@ -1,8 +1,124 @@
-# React + Vite
+</br>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# :star2:프로젝트 : Dreams Come True:star2:
 
-Currently, two official plugins are available:
+![image](https://github.com/user-attachments/assets/1da2f09b-67ce-45c5-a83e-7560d68fbea3)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## :dizzy: 서비스 소개
+
+### 개요
+
+AI를 활용한 해몽 웹 사이트
+
+</br>
+
+### 이용 타겟
+
+- 전 연령대 이용 가능
+- 본인의 상황과 연관지어 해몽이 필요한 사람
+- 다양하고 재밌는 해몽을 원하는 사람
+  
+</br>
+
+### :calendar: 개발 기간
+
+**2025.2.11 ~ 2025.2.28**
+
+</br>
+
+### 기획배경 및 기대효과
+
+### 기획 배경
+
+최근 AI 기술의 발전과 함께 다양한 분야에서 맞춤형 서비스를 제공하는 플랫폼이 증가하고 있다. 그러나 기존의 꿈 해몽 서비스들은 단순히 꿈의 키워드를 분석하여 기계적인 해몽을 제공하는 방식이 대부분이다.
+사용자의 최근 경험이나 개인적인 상황을 고려하지 않아 현실과 동떨어진 해몽이 많아 신뢰도를 높이기 어려운 한계가 있었다.
+
+이에 따라, 사용자의 최근 경험과 심리 상태를 반영하여 보다 맞춤형 해몽을 제공하는 AI 기반 해몽 사이트를 기획하였다. 다양한 성격과 스타일을 가진 해몽가 캐릭터를 통해
+사용자에게 더욱 흥미롭고 몰입감 있는 경험을 제공할 수 있도록 하였다. 이를 통해 단순한 꿈 해석을 넘어 심리적 위안과 조언을 제공하는 서비스로 발전시키고자 한다.
+
+### 기대 효과
+
+#### 1. 개인 맞춤형 해몽 제공
+
+  기존 해몽 서비스와 달리, 사용자의 최근 경험과 감정 상태를 반영하여 해몽을 제공하므로 더욱 신뢰도 높은 해몽 결과를 얻을 수 있다.
+
+#### 2. 다양한 캐릭터를 통한 흥미로운 경험과 해몽 스타일 제공
+
+  사용자는 자신이 선호하는 해몽가를 선택하여 각기 다른 스타일의 해몽을 경험할 수 있다. 이를 통해 단순 정보 전달을 넘어 재미있는 콘텐츠 소비가 가능하다.
+  또한 캐릭터마다 해몽 스타일이 다르기에 잔소리 형식의 독설가 스타일, 평안을 가져주는 종교인 스타일, 금전적인 부분을 중점적으로 풀어주는 만수르 스타일 등 다양한 해몽을 받아 볼 수 있다., 
+
+#### 3. 심리적 위안과 조언 제공
+
+  꿈은 종종 사용자의 심리 상태를 반영하는 요소로 작용한다. AI 해몽 사이트는 꿈 해석뿐만 아니라, 심리적 안정과 조언을 제공하여 사용자가 자신의 감정을 이해하고 정리하는 데 도움을 줄 수 있다.
+
+#### 4. 개인의 꿈 기록 제공
+
+  해몽 내용을 기록해두어 추후에도 확인이 가능하며 기록을 기반으로 추후에는 심리상담 및 챗봇 등 다양한 서비스 확장이 가능하다. 
+
+#### 5. 확장 가능성
+
+  추가 캐릭터 도입 : 캐릭터 다양성을 늘려서 사용자 재미요소를 증대시킬 수 있다. 
+  지속적인 서비스 개선 : 사용자의 피드백과 데이터를 토대로 프롬프트 수정 및 AI 모델 변경을 통해 보다 더 질 높은 해몽 서비스를 제공 할 수 있다.
+  분석 리포트 도입 : 꿈 기록 분석 리포트를 통해 악몽 빈도가 높은 사용자 대상 심리 상담 연계 등 다양한 곳에 활용 가능하다.
+  커뮤니티 : 사용자들이 자신의 꿈과 해몽 결과를 공유하고 의견을 나눌 수 있는 커뮤니티 기능을 추가하면, 사용자 간의 소통이 활발해지고 서비스의 지속적인 이용률을 높일 수 있다.
+  수익 모델 확장 : 수면 시장(수면 보조제, 침구)과 심리 상담 서비스 등 다방면에서 연관지을 수 있다.
+  또한, 서비스 이용 횟수 제한을 통한 유료회원 전환 유도, 유료 회원 대상 차별화된 해몽 서비스를 통해 수익 모델 확장이 가능하다.
+
+</br>
+
+## :dizzy: 화면 소개
+
+
+#### ✅ 시작 화면
+<img src="https://github.com/user-attachments/assets/bb56949c-0d77-4cbf-b667-c0c1a12a92fb" width="800" height="450"/>
+
+
+</br>
+
+#### ✅ 캐릭터 선택
+![Image](https://github.com/user-attachments/assets/02cae9c1-8f9d-4875-aab7-bc0810b2c672)
+
+
+</br>
+
+#### ✅ 고민거리 및 꿈 입력
+![Image](https://github.com/user-attachments/assets/665692b9-4755-4f02-a761-c42e9bc32a04)
+![Image](https://github.com/user-attachments/assets/66ffcc07-192d-4b32-86f6-5337fc829da2)
+
+</br>
+
+#### ✅ 해몽 결과
+![Image](https://github.com/user-attachments/assets/73d654c8-6442-4aa4-99e2-d083df8cb454)
+
+</br>
+
+#### ✅ 꿈 기록 및 삭제
+![Image](https://github.com/user-attachments/assets/a8ebc916-ae23-4294-9b40-c1f12e5aa49d)
+
+
+</br>
+
+#### ✅ 회원가입
+![Image](https://github.com/user-attachments/assets/f9dbb322-2823-4e7d-99f1-ae50ff1d3fff)
+
+</br>
+
+#### ✅ 사용자 정보(닉네임 및 회원 등급) 수정 
+![Image](https://github.com/user-attachments/assets/e5eb9ca0-ff23-4d90-8118-3e427d35bc55)
+![Image](https://github.com/user-attachments/assets/055682d1-5e6d-4370-ab2a-55f7c6713993)
+
+</br>
+
+## 📚 기술스택 및 개발환경
+![image](https://github.com/user-attachments/assets/7bc0106a-ff6e-483d-a00c-3adb4bdf88bf)
+
+</br>
+
+## :family: 개발 팀원 소개
+
+| <img src="https://avatars.githubusercontent.com/u/168426306?v=4" width="130" height="130"> | <img src ="https://avatars.githubusercontent.com/u/82080494?v=4" width="130" height="130"> | <img src ="https://avatars.githubusercontent.com/u/111099840?v=4" width="130" height="130"> |
+| :---------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+|                         [김성윤](https://github.com/cafephilia)                        |                          [성연준](https://github.com/tony24123)                          |                             [오인혁](https://github.com/inhyeokoh)                             |
+
+</br>
